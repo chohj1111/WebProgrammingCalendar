@@ -15,15 +15,15 @@
 	
 	<div class="loginbox">
 		<h1 class="calendarfont"> Web Calendar </h1> <br>
-		<form action="#" method="post">
+		<form action="login-db/login-db.jsp" method="post">
 			<div class="id-wrap">	
-				<input placeholder="User ID" type="text">
+				<input placeholder="User ID" type="text" name="id">
 			</div>
 			<div class="password-wrap">	
-				<input placeholder="Input Password" type="password">
+				<input placeholder="Input Password" type="password" name="pw">
 			</div>
 			<div class="login-button-wrap">
-				<button>로그인</button>
+				<button type="submit">로그인</button>
 			</div>
 			
 		</form>
