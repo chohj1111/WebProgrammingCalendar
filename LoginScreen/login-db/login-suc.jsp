@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-성공페이지
+success page
 </body>
 </html>
