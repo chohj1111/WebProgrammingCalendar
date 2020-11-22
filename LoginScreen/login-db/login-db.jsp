@@ -27,10 +27,10 @@ try{
 		if(pw.equals(rs.getString("pw"))){
 			redirectURL = "../../calendar.html";
 			%>
-			<form method="post">
+			<form name="loginSuccess" method="post">
 				<input type="hidden" name="id" value="<%=id%>">
-				<script>location.href="<%=redirectURL%>";</script>
 			</form>
+			<script type="text/javascript">document.loginSuccess.submit();</script>
 			<%
 			//out.println("<script>location.href='"+redirectURL+"';</script>");
 		}
