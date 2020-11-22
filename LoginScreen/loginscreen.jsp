@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -12,7 +13,7 @@
 	<div class="daemoon">
 		<img src="image/daemoon.png" class="firstimage"> 
 	</div>
-	
+
 	<div class="loginbox">
 		<h1 class="calendarfont"> Web Calendar </h1> <br>
 		<form action="login-db/login-db.jsp" method="post">
@@ -21,6 +22,13 @@
 			</div>
 			<div class="password-wrap">	
 				<input placeholder="Input Password" type="password" name="pw">
+			</div><br>
+			<div class="login-fail-info">
+				<%
+					String msg = request.getParameter("msg");
+					if(msg != null) { out.println(msg); } 
+				%>
+				&nbsp;
 			</div>
 			<div class="login-button-wrap">
 				<button type="submit">로그인</button>

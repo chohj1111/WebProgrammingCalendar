@@ -25,13 +25,26 @@ try{
 	
 	if(rs.next()) {	
 		if(pw.equals(rs.getString("pw"))){
-			redirectURL = "login-suc.jsp";
-			out.println("<script>location.href='"+redirectURL+"';</script>");
+			redirectURL = "../../calendar.html";
+			%>
+			<form method="post">
+				<input type="hidden" name="id" value="<%=id%>">
+				<script>location.href="<%=redirectURL%>";</script>
+			</form>
+			<%
+			//out.println("<script>location.href='"+redirectURL+"';</script>");
 		}
 	}
-		
-	out.println("<script>alert('가입되지 않은 아이디이거나, 잘못된 비밀번호입니다');</script>");
-	out.println("<script>location.href='"+redirectURL+"';</script>");
+	String msg = "가입되지 않은 아이디이거나, 잘못된 비밀번호입니다";
+	%>
+	<form name="loginFailInfo" action="<%=redirectURL%>" method="post">
+		<input type="hidden" name="msg" value="<%=msg%>">
+		<input type="hidden" name="id" value="<%=id%>">
+	</form>
+	<script type="text/javascript">document.loginFailInfo.submit();</script>
+	<%
+	//out.println("<script>alert('');</script>");
+	//out.println("<script>location.href='"+redirectURL+"';</script>");
 	
 	rs.close();
 	conn.close();

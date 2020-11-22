@@ -65,3 +65,9 @@
 	color: Aqua;
 	border: Aqua;
 }
+
+.login-fail-info {
+	font-size: 10px;
+	color: red;
+}
+
