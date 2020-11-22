@@ -1,0 +1,67 @@
+
+.daemoon{
+	float :left;
+
+    display: flex;
+    align-items: center;
+    max-width: 739px;
+    max-height: 583px;
+    object-fit: scale-down;
+}
+.firstimage{
+    width: auto; height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.loginbox{
+	
+	float: left;
+	display : flex;
+	flex-direction: column;
+	text-align: center;
+	width:30%;
+	height: 40%;
+}
+
+@media screen and (min-width: 1076px) 
+{
+	.loginbox { 
+	position : relative;
+	top:20%;
+	
+	}
+}
+
+
+@media screen and (max-width: 1075px) 
+{
+	.loginbox { 
+	position : relative;
+	left:35%;
+	}
+}
+
+.calendarfont{
+	font-family: 'Jua', sans-serif;
+}
+
+.id-wrap{
+
+}
+
+.password-wrap{
+	padding-top: 10px;
+}
+
+
+.login-button-wrap {
+	padding-top: 13px;
+}
+.login-button-wrap button{
+	width: 350px;
+	height :48px;
+	font-size: 18px;
+	background: linear-gradient(90deg, rgba(32,57,136,1) 0%, rgba(25,61,120,1) 30%, rgba(18,64,105,1) 58%, rgba(13,66,95,1) 76%, rgba(11,67,90,1) 85%, rgba(7,69,82,1) 100%);
+	color: Aqua;
+	border: Aqua;
+}
