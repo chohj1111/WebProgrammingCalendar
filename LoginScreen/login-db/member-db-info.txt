@@ -1,0 +1,11 @@
+mycal 데이터베이스 -> member 테이블에 회원정보 저장
+
+create database mycal;
+
+use mycal;
+
+create table member (
+name varchar(20) not null,
+id varchar(20) not null,
+pw varchar(20) not null,
+primary key(id));
