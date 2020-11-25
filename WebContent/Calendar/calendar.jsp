@@ -24,7 +24,7 @@
 			<fieldset>
 				<input type="search" id="search-bar">
 				<button type="submit" id="search-submit">
-					<i class="fa-search"></i>
+					<i class="fa fa-search"></i>
 				</button>
 			</fieldset>
 		</form>
