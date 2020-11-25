@@ -32,6 +32,7 @@
 			</div>
 			<div class="login-button-wrap">
 				<button type="submit">로그인</button>
+				<center><a href="register/register.jsp" class="sign-up">회원가입</a></center>
 			</div>
 			
 		</form>

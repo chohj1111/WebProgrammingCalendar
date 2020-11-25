@@ -65,9 +65,26 @@
 	color: Aqua;
 	border: Aqua;
 }
+button:hover{
+	cursor: pointer;
+}
+.sign-up{
+	display:block;
+	width: 350px;
+	height :37px;
+	font-size: 18px;
+	background: linear-gradient(90deg, rgba(7,69,82,1) 0%, rgba(11,67,90,1) 15%, 
+				rgba(13,66,95,1) 24%, rgba(18,64,105,1) 42%, rgba(32,57,136,1) 70%, 
+				rgba(32,57,136,1) 100%);
+	color: Aqua;
+	border: Aqua;
+	text-decoration: none;
+	text-align: center;
+	margin-top : 5px;
+	padding-top:11px;
+}
 
 .login-fail-info {
 	font-size: 10px;
 	color: red;
 }
-
