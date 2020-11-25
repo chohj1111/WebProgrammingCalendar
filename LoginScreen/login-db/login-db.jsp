@@ -25,9 +25,9 @@ try{
 	
 	if(rs.next()) {	
 		if(pw.equals(rs.getString("pw"))){
-			redirectURL = "../../calendar.html";
+			redirectURL = "../../Calendar/calendar.jsp";
 			%>
-			<form name="loginSuccess" method="post">
+			<form name="loginSuccess" action="<%=redirectURL%>" method="post">
 				<input type="hidden" name="id" value="<%=id%>">
 			</form>
 			<script type="text/javascript">document.loginSuccess.submit();</script>
