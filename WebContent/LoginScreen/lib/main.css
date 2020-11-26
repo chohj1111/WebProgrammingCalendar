@@ -1,0 +1,159 @@
+@import "https://fonts.googleapis.com/css?family=Raleway:300,400,700";
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #496174;
+  background: #fff;
+  font-size: 14px;
+  line-height: 24px; }
+
+.footer-padding {
+  padding: 100px 0; }
+
+.typed-cursor {
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite; }
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 35px;
+  color: #fff; 
+}
+
+h2 {
+  font-size: 36px;
+  letter-spacing: 0.08em; 
+}
+
+p {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  line-height: 24px; 
+}
+
+.btn-indigo {
+  background: indigo;
+  padding: 10px 28px;
+  border: 2px solid indigo;
+  color: white;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  -webkit-transition: 0.5s all;
+          transition: 0.5s all;
+  box-shadow: 0px 0px 20px 0px rgba(68, 197, 238, 0.6);
+  outline: none !important; 
+}
+
+.btn-indigo:hover,
+.btn-indigo:focus,
+.btn-indigo:active {
+  background: #fff;
+  color: indigo;
+ }
+
+ .btn-indigo {
+  background: indigo;
+  padding: 10px 28px;
+  border: 2px solid indigo;
+  color: white;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  -webkit-transition: 0.5s all;
+          transition: 0.5s all;
+  box-shadow: 0px 0px 20px 0px rgba(68, 197, 238, 0.6);
+  outline: none !important; 
+}
+
+.btn-indigo:hover,
+.btn-indigo:focus,
+.btn-indigo:active {
+  background: #fff;
+  color: indigo;
+ }
+
+ .btn-darkcyan {
+  background: DarkCyan;
+  padding: 10px 28px;
+  border: 2px solid DarkCyan;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  -webkit-transition: 0.5s all;
+          transition: 0.5s all;
+  box-shadow: 0px 0px 60px 0px rgba(68, 197, 238, 0.6);
+  outline: none !important; 
+}
+
+.btn-darkcyan:hover,
+.btn-darkcyan:focus,
+.btn-darkcyan:active {
+  background: #fff;
+  color: DarkCyan; 
+}
+
+#main {
+  position: relative;
+  padding: 190px 0px 120px 0px;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(img/banner.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
+#main .caption {
+  padding: 60px 0; 
+}
+#main .caption h2 {
+  color: #fff; 
+}
+  #main .caption p {
+  font-size: 18px;
+  margin-top: 25px;
+  color: #fff; 
+}
+#main .caption .btn {
+  margin-top: 25px; 
+}
+
+#main .login-form {
+  background-color: #fff;
+  padding: 45px;
+  border-radius: 5px; 
+}
+
+#main .login-form input {
+  border: 1px solid #eee;
+  height: 38px;
+  box-shadow: none !important; 
+}
+#main .login-form input:focus {
+border-color: #44c5ee; 
+}
+
+#main .login-form .form-control {
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #555;
+  background-color: #fff;
+  border-radius: 3px; 
+}
+
+#sub {
+  text-align: center; 
+}
+#sub #owl-lib {
+  margin: 60px 0;
+}
+#sub #owl-lib .owl-pagination {
+    display: none; 
+}
+
+.login-fail-info {
+	font-size: 14px;
+	color: red;
+}

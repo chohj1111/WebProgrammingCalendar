@@ -1,42 +1,94 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<link href="loginscreen.css" rel="stylesheet" type="text/css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-<title>웹 캘린더 로그인 화면입니다. </title>
+    <meta charset="utf-8">
+
+    <title>웹 캘린더 로그인 화면입니다.</title>
+
+    <!-- css  -->
+    <link href="lib/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="lib/js/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href="lib/js/owl-carousel/owl.transitions.css" rel="stylesheet">
+
+    <!-- 폰트 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- bootstarp, main css -->
+    <link href="lib/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/main.css" rel="stylesheet">
+
+    <!-- js 라이브러리 -->
+    <script src="lib/js/jquery-3.5.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="lib/js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="lib/js/typed.js-master/typed.js-master/dist/typed.min.js"></script>
+    <script src="lib/main.js"></script>
 </head>
+
 <body>
-	<div class="daemoon">
-		<img src="image/daemoon.png" class="firstimage"> 
-	</div>
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 caption">
+                    <h1>Web Calendar</h1>
+                    <h2>
+                        #
+                        <span class="animated-text"></span>
+                        <span class="typed-cursor"></span>
+                    </h2>
+                </div>
 
-	<div class="loginbox">
-		<h1 class="calendarfont"> Web Calendar </h1> <br>
-		<form action="login-db/login-db.jsp" method="post">
-			<div class="id-wrap">	
-				<input placeholder="User ID" type="text" name="id">
-			</div>
-			<div class="password-wrap">	
-				<input placeholder="Input Password" type="password" name="pw">
-			</div><br>
-			<div class="login-fail-info">
-				<%
-					String msg = request.getParameter("msg");
-					if(msg != null) { out.println(msg); } 
-				%>
-				&nbsp;
-			</div>
-			<div class="login-button-wrap">
-				<button type="submit">로그인</button>
-				<center><a href="register/register.jsp" class="sign-up">회원가입</a></center>
-			</div>
-			
-		</form>
- 	</div>
+                <div class="col-md-5 col-md-offset-1">
+                    <form class="login-form" action="login-db/login-db.jsp" method="post">
+                        <h2 class="text-center">로그인</h2>
+                        <hr>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="아이디" name="id" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="비밀번호" name="pw" required="required">
+                        </div>
+                        <div class="login-fail-info">
+                            <%
+                                String msg = request.getParameter("msg");
+                                if(msg != null) { out.println(msg); } 
+                            %>
+                            &nbsp;
+                        </div>
+                        <br>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-indigo btn-block">로그인</button>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-darkcyan btn-block" 
+                            	onclick="location.href='register/register.jsp'">
+                            회원가입
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <br><br>
+    <section id="sub">
+        <div class="container">
+            <div class="row">
+                <div id="owl-lib">
+                	<div class="item"><img src="lib/img/logos/bootst.png" class="center-block"></div>
+                    <div class="item"><img src="lib/img/logos/fullcal.png" class="center-block"></div>
+                    <div class="item"><img src="lib/img/logos/JQuery.png" class="center-block"></div>
+                    <div class="item"><img src="lib/img/logos/owl.png" class="center-block"></div>
+                    <div class="item"><img src="lib/img/logos/typedjs.png" class="center-block"></div>
+                    <div class="item"><img src="lib/img/logos/tomcat.png" class="center-block"></div>
+                    <div class="item"><img src="lib/img/logos/freepik.png" class="center-block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
