@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>웹 캘린더 로그인 화면입니다.</title>
+    <title>Web Calendar</title>
 
     <!-- css  -->
     <link href="lib/js/owl-carousel/owl.carousel.css" rel="stylesheet">
