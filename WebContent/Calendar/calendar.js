@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 		$.modal.close()
-
+     	$('#calendar_insert_form').submit(); 
+    
 	});
 
 	// 일정 수정
@@ -100,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 		$.modal.close()
+		$('#calendar_modify_form').submit(); 
 	});
 
 	// 일정 삭제

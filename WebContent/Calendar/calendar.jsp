@@ -15,6 +15,9 @@
 <script type="text/javascript" src="calendar.js"></script>
 <link rel="stylesheet" type="text/css" href="calendar.css">
 
+<!-- calendar_db로 전송 -->
+<%  String id= request.getParameter("id"); %>
+
 <title>WEB Calendar</title>
 </head>
 <body>
@@ -29,10 +32,14 @@
 			</fieldset>
 		</form>
 	</div>
+	 
 	<div id="addEvent-modal" class="modal">
 		<h2>일정 추가</h2><hr><br>
 		
-		<form action="#">
+		<form id="calendar_insert_form" action="calendar-db/calendar-insert-db.jsp" method="post">
+		<!-- for calender-insert-db.jsp -->
+		<input type="hidden" name="id" value="<%=id%>">
+		
 		<table width="900px">
 			<tr>
 				<td><b>일정명</b></td>
@@ -42,7 +49,7 @@
 				<td><b>색상</b></td>
 				<td>
 					<select name="color" id="input-color" required="required">
-						<option>기본 색상</option>
+						<option value="Default">기본 색상</option>
 						<option value="Red" style="color: Red;">빨간색</option>
 						<option value="Purple" style="color: Purple;">보라색</option>
 						<option value="Orange" style="color: Orange;">주황색</option>
@@ -78,7 +85,9 @@
 	<div id="editEvent-modal" class="modal">
 	<h2>일정 수정</h2><hr><br>
 	
-	<form action="#">
+	<form id="calendar_modify_form" action="calendar-db/calendar-modify-db.jsp">
+	<!-- for calender-insert-db.jsp -->
+	<input type="hidden" name="id" value="<%=id%>">
 	<table width="900px">
 		<tr>
 			<td><b>일정명</b></td>

@@ -1,0 +1,14 @@
+//일정 저장하는 db
+
+use mycal;
+
+create table plan (
+title varchar(20) not null,
+color varchar(20) not null,
+startdate DATE  not null,
+enddate DATE  not null,
+memo varchar(40),
+post_id int not null, 
+id varchar(20) not null,
+primary key(post_id),
+foreign key(id) references member(id));
