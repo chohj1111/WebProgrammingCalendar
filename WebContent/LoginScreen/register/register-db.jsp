@@ -11,6 +11,7 @@ Connection conn = null;
 Statement stmt = null;
 ResultSet rs = null;
 String sql_update;
+String redirectURL = "../loginscreen.jsp";
 
 name = request.getParameter("name");
 id = request.getParameter("id");
@@ -30,6 +31,12 @@ try{
 	pstmt.setString(3,pw);
 	pstmt.setString(4,email);
 	pstmt.executeUpdate();
+	%>
+	<form name="RegisterSuccess" action="<%=redirectURL%>" method="post">
+				<input type="hidden" name="id" value="<%=id%>">
+	</form>
+	<script type="text/javascript">document.RegisterSuccess.submit();</script>
+	<% 
 }catch(Exception e){
 	out.println("DB 연동 오류입니다.:"+e.getMessage());
 }

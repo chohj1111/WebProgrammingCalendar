@@ -46,7 +46,7 @@
                         <h2 class="text-center">로그인</h2>
                         <hr>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="아이디" name="id" required="required">
+                            <input type="text" class="form-control" placeholder="아이디" name="id" required="required" value=<%=request.getParameter("id") %>>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="비밀번호" name="pw" required="required">
