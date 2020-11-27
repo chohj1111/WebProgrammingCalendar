@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 	var calendarEl = document.getElementById('calendar');
-
+	// to get id from event 
+	var event_id;
 	calendar = new FullCalendar.Calendar(calendarEl, {
 		headerToolbar: {
 			left: 'prevYear,prev,next,nextYear today',
@@ -27,10 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		eventClick: function(info) {
 			edit_event = info.event;
+			//get id of event
+			event_id = info.event.id;
+			
 			$("#editEvent-modal").modal({ fadeDuration: 100 });
 			$("#edit-title").val(info.event.title);
 			$("#edit-color").val(info.event.color);
 			$("#edit-start").val(info.event.startStr);
+			
 			if (!info.event.endStr) {
 				$("#edit-end").val(info.event.startStr);
 			}
@@ -57,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var start = new Date($("#input-start").val());
 		var end = new Date($("#input-end").val());
 		var memo = $("#input-memo").val();
-
+		
 		//일정이 2일 이상일 경우 종료일에서 하루 더 추가 (full calendar 문제인듯)
 		if (start.getTime() != end.getTime()) {
 			end.setDate(end.getDate() + 1);
@@ -86,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		var start = new Date($("#edit-start").val());
 		var end = new Date($("#edit-end").val());
 		var memo = $("#edit-memo").val();
-		
 		if (start.getTime() != end.getTime()) {
 			end.setDate(end.getDate() + 1);
 		}
@@ -99,7 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			description: memo,
 			allDay: true
 		});
+		//change form action to 'calendar-modify-db.jsp'
+		$('#calendar_modify_form').attr('action', 'calendar-db/calendar-modify-db.jsp');
 
+		$('#calendar_modify_form').append('<input type="hidden" name="id" value="'+ String(event_id)+'"/>');
 		$.modal.close()
 		$('#calendar_modify_form').submit(); 
 	});
@@ -108,8 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	$('#edit-delete').on('click', function(e) {
 		e.preventDefault();
 		edit_event.remove();
-
+		
+		//change form action to 'calendar-modify-db.jsp'
+		$('#calendar_modify_form').attr('action', 'calendar-db/calendar-delete-db.jsp');
+		$('#calendar_modify_form').append('<input type="hidden" name="id" value="'+ String(event_id)+'"/>');
 		$.modal.close()
+		$('#calendar_modify_form').submit(); 
 	});
 
 	var currentdate = calendar.getDate();

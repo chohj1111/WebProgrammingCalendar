@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="calendar.css">
 
 <!-- calendar_db로 전송 -->
-<%  String id= request.getParameter("id"); %>
+<%-- <%  String id= request.getParameter("id"); %> --%>
 
 <title>WEB Calendar</title>
 </head>
@@ -36,9 +36,9 @@
 	<div id="addEvent-modal" class="modal">
 		<h2>일정 추가</h2><hr><br>
 		
-		<form id="calendar_insert_form" action="calendar-db/calendar-insert-db.jsp" method="post">
+		<form id="calendar_insert_form" action="calendar-db/calendar-insert-db.jsp" method="get">
 		<!-- for calender-insert-db.jsp -->
-		<input type="hidden" name="id" value="<%=id%>">
+	<%-- 	<input type="hidden" name="id" value="<%=id%>"> --%>
 		
 		<table width="900px">
 			<tr>
@@ -85,9 +85,9 @@
 	<div id="editEvent-modal" class="modal">
 	<h2>일정 수정</h2><hr><br>
 	
-	<form id="calendar_modify_form" action="calendar-db/calendar-modify-db.jsp">
+	<form id="calendar_modify_form" action="calendar-db/calendar-modify-db.jsp" method="get">
 	<!-- for calender-insert-db.jsp -->
-	<input type="hidden" name="id" value="<%=id%>">
+	<%-- <input type="hidden" name="id" value="<%=id%>"> --%>
 	<table width="900px">
 		<tr>
 			<td><b>일정명</b></td>

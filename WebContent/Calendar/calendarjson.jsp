@@ -15,7 +15,7 @@ JSONArray arr; %>
   		String url = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
   		conn = DriverManager.getConnection(url, "root", "0000");
         Statement st = conn.createStatement();
-        sql="select title,startdate,enddate from plan order by post_id asc";
+        sql="select * from plan order by id asc";
         rs = st.executeQuery(sql);
         arr = new JSONArray();
   		
@@ -23,9 +23,11 @@ JSONArray arr; %>
   			
   			JSONObject obj = new JSONObject();
   			obj.put("title", rs.getString("title"));
+  			obj.put("color", rs.getString("color"));
   			obj.put("start", rs.getString("startdate"));
   			obj.put("end", rs.getString("enddate"));
-  		
+  			obj.put("description", rs.getString("memo"));
+  			obj.put("id", rs.getString("id"));
   			arr.add(obj);
   		}
 
