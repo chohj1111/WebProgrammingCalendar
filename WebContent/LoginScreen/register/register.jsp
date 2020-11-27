@@ -1,192 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="register.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
-<title>Insert title here</title>
-<style type="text/css">
-#idCheck{
-	color:red;
-	font-size:9pt;
-}
-#pwCheck{
-	color:red;
-	font-size:9pt;
-}
-#registerCheck{
-	color:red;
-	font-size:12pt;
-}
-.fa-check-circle{
-	color:#06ad16b3;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="lib/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="lib/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
-<script type="text/javascript">
-var xhr = null;
-var register = false;
-function getXHR(){
-	if(window.XMLHttpRequest){
-		return new XMLHttpRequest();
-	}
-}
-
-function nameCheck(){
-	if(!document.userInfo.name.value){
-		document.getElementById("registerCheck").innerHTML="이름을 입력하세요";
-		document.getElementById("name-check-circle").style.display = "none";
-	}else{
-		
-		document.getElementById("registerCheck").innerHTML="";
-		document.getElementById("name-check-circle").style.display = "inline-block";
-	}
-}
-
-function idCheck(){
-	xhr = getXHR();
-	xhr.onreadystatechange = getResult;
-	var id = document.getElementById("id").value;
-	xhr.open("get","idcheck.jsp?id=" + id, true);
-	xhr.send(null);
-}
-
-function pwCheck(){
-	if(document.userInfo.pw.value == document.userInfo.pw2.value){
-		document.getElementById("registerCheck").innerHTML="";
-		if(document.userInfo.pw.value != "")
-			document.getElementById("pw-check-circle").style.display = "inline-block";
-	}else{
-		document.getElementById("registerCheck").innerHTML="비밀번호를 동일하게 입력하세요";
-		document.getElementById("pw-check-circle").style.display = "none";
-	}
-}
-
-function getResult(){
-	if(xhr.readyState == 4 && xhr.status == 200){
-		var xml = xhr.responseXML;
-		var re = xml.getElementsByTagName("result")[0].firstChild.nodeValue;
-		
-		if(re == 'true'){
-			document.getElementById("idCheck").innerHTML="이미 사용중인 아이디 입니다";
-			document.getElementById("id-check-circle").style.display = "none";
-			document.getElementById("idCheck").style.color = "red";
-			register = false;
-		}else{
-			document.getElementById("idCheck").innerHTML="";
-			document.getElementById("id-check-circle").style.display = "inline-block";
-			document.getElementById("idCheck").style.color = "blue";
-			register = true;
-		}
-		if(!document.userInfo.id.value)
-			document.getElementById("idCheck").innerHTML="";
-	}
-}
-function checkValue(){
-	if(!document.userInfo.name.value){
-		document.getElementById("registerCheck").innerHTML="이름을 입력하세요";
-		return false;
-	}
-	if(!document.userInfo.id.value){
-		document.getElementById("registerCheck").innerHTML="아이디를 입력하세요";
-		return false;
-	}
-	if(!document.userInfo.pw.value){
-		document.getElementById("registerCheck").innerHTML="비밀번호를 입력하세요";
-		return false;
-	}
-	if(document.userInfo.pw.value != document.userInfo.pw2.value){
-		document.getElementById("registerCheck").innerHTML="비밀번호를 동일하게 입력하세요";
-		return false;
-	}
-	if(!document.userInfo.email.value){
-		document.getElementById("registerCheck").innerHTML="이메일을 입력하세요";
-		return false;
-	}
-	if(!register){
-		document.getElementById("registerCheck").innerHTML="이미 사용중인 아이디 입니다";
-		return false;
-	}
-}
-
-</script>
+    <script src="lib/js/jquery-3.5.1.min.js"></script>
+    <script src="lib/js/main.js"></script>
 </head>
+
 <body>
-	<!-- header -->
-	<div id="header">
-    	<h1>Web Calendar</h1>
-    	<h3 id="header_comment">Web Calendar 계정으로 새로운 일정관리를 경험하세요</h3>
+    <div class="js-fullheight position-center">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">회원가입</h2>
+                        <form class="register-form" id="register-form" 
+                        	action="register-db.jsp" method="post" name="userInfo" onsubmit="return checkValue()">
+                            <div class="form-group">
+                              	<label for="name"><i class="zmdi zmdi-account"></i></label>
+                              	<input type="text" class="int" name="name" id="name" placeholder="이름" maxlength="20" onkeyup="nameCheck()"/>
+                              	<i style="display:none;" id = "name-check-circle" class="fas fa-check-circle"></i>
+                            </div><br>
+                            <div class="form-group">
+                               	<label for="name"><i class="zmdi zmdi-card"></i></label>
+                                <input type="text" class="int" name="id" id="id" placeholder="아이디" maxlength="20" onkeyup="idCheck()"/>
+                                <i style="display:none;" id = "id-check-circle" class="fas fa-check-circle"></i>
+                            </div><span id="idCheck" class="error_next_box">&nbsp;</span>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="이메일" />
+                            </div><br>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pw" id="pswd1" placeholder="비밀번호" onkeyup="pwCheck()" />
+                            </div><br>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="pw2" id="pswd2" placeholder="비밀번호 확인" onkeyup="pwCheck()" />
+                                <i style="display:none;" id = "pw-check-circle" class="fas fa-check-circle"></i>
+                            </div><br>
+                            <span id="registerCheck">&nbsp;</span><br><br>
+                            <div class="form-group form-button">
+                                <button type="submit" name="signup" id="btnJoin" class="btn btn-skyblue btn-block form-submit">
+                                	회원가입
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="lib/images/calendar.png" alt="sing up image"></figure>
+                        <a href="../loginscreen.jsp" class="back-login">이미 계정이 있습니다</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    
-    <!-- wrapper -->
-    <form action="register-db.jsp" method="post" name="userInfo" onsubmit="return checkValue()">
-    	<div id="wrapper">
-    		<!-- content -->
-    		<div id="content">
-    			<!-- name -->
-    			<div>
-    				<h3 class="join_title"><label for="name">이름</label></h3>
-    				<span class="box int_name">
-    					<input type="text" name="name" id="name" class="int" maxlength="20" 
-    					onkeyup="nameCheck()">
-    					<i style="display:none;" id = "name-check-circle" class="fas fa-check-circle"></i>
-    				</span>
-    			</div>
-    			
-    			<!-- ID -->
-                <div>
-                    <h3 class="join_title">
-                        <label for="id">아이디</label>
-                    </h3>
-                    <span class="box int_id">
-                        <input type="text" name="id" id="id" class="int" maxlength="20" 
-                        onkeyup="idCheck()">
-                        <i style="display:none;" id = "id-check-circle" class="fas fa-check-circle"></i>
-                    </span>
-                    <span id="idCheck" class="error_next_box"></span>
-                </div>
-
-                <!-- PW1 -->
-                <div>
-                    <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
-                    <span class="box int_pass">
-                        <input type="password" name="pw" id="pswd1" class="int" maxlength="20" 
-                        onkeyup="pwCheck()">
-                    </span>
-                </div>
-
-                <!-- PW2 -->
-                <div>
-                    <h3 class="join_title"><label for="pswd2"></label></h3>
-                    <span class="box int_pass_check">
-                        <input type="password" name="pw2" id="pswd2" class="int" maxlength="20" 
-                        onkeyup="pwCheck()" placeholder="비밀번호 확인">
-                        <i style="display:none;" id = "pw-check-circle" class="fas fa-check-circle"></i>
-                    </span>
-                </div>
-                
-                <!-- EMAIL -->
-                <div>
-                    <h3 class="join_title"><label for="email">본인확인 이메일</label>(선택)</h3>
-                    <span class="box int_email">
-                        <input type="text" name="email" id="email" class="int" maxlength="40" 
-                        placeholder="아이디/비밀번호 찾기에 사용됩니다" onkeyup="emailCheck()">
-                    </span>
-                </div>
-                
-                <!-- JOIN BTN-->
-                <br><span id="registerCheck"></span>
-                <div class="btn_area">
-                    <button type="submit" id="btnJoin">
-                        <span>가입하기</span>
-                    </button>
-                </div>
-    		</div>
-    	</div>
-    </form>
-        
-        
 </body>
 </html>
