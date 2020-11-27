@@ -56,7 +56,8 @@ function idCheck(){
 function pwCheck(){
 	if(document.userInfo.pw.value == document.userInfo.pw2.value){
 		document.getElementById("registerCheck").innerHTML="";
-		document.getElementById("pw-check-circle").style.display = "inline-block";
+		if(document.userInfo.pw.value != "")
+			document.getElementById("pw-check-circle").style.display = "inline-block";
 	}else{
 		document.getElementById("registerCheck").innerHTML="비밀번호를 동일하게 입력하세요";
 		document.getElementById("pw-check-circle").style.display = "none";
@@ -151,17 +152,17 @@ function checkValue(){
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="text" name="pw" id="pswd1" class="int" maxlength="20" 
+                        <input type="password" name="pw" id="pswd1" class="int" maxlength="20" 
                         onkeyup="pwCheck()">
                     </span>
                 </div>
 
                 <!-- PW2 -->
                 <div>
-                    <h3 class="join_title"><label for="pswd2">비밀번호 확인</label></h3>
+                    <h3 class="join_title"><label for="pswd2"></label></h3>
                     <span class="box int_pass_check">
-                        <input type="text" name="pw2" id="pswd2" class="int" maxlength="20" 
-                        onkeyup="pwCheck()">
+                        <input type="password" name="pw2" id="pswd2" class="int" maxlength="20" 
+                        onkeyup="pwCheck()" placeholder="비밀번호 확인">
                         <i style="display:none;" id = "pw-check-circle" class="fas fa-check-circle"></i>
                     </span>
                 </div>
@@ -170,7 +171,7 @@ function checkValue(){
                 <div>
                     <h3 class="join_title"><label for="email">본인확인 이메일</label>(선택)</h3>
                     <span class="box int_email">
-                        <input type="text" name="email" id="email" class="int" maxlength="100" 
+                        <input type="text" name="email" id="email" class="int" maxlength="40" 
                         placeholder="아이디/비밀번호 찾기에 사용됩니다" onkeyup="emailCheck()">
                     </span>
                 </div>
