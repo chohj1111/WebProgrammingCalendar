@@ -26,9 +26,18 @@
     <script src="lib/js/owl-carousel/owl.carousel.min.js"></script>
     <script src="lib/js/typed.js-master/typed.js-master/dist/typed.min.js"></script>
     <script src="lib/main.js"></script>
+    <script type="text/javascript">
+    
+    function request(){
+    	var id = "<%=request.getParameter("id")%>";
+     	if(id != "null"){
+     		$('#id-form').prop("value",id);
+     	}
+    }
+    </script>
 </head>
 
-<body>
+<body onload="request()">
     <section id="main">
         <div class="container">
             <div class="row">
@@ -46,7 +55,7 @@
                         <h2 class="text-center">로그인</h2>
                         <hr>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="아이디" name="id" required="required" value=<%=request.getParameter("id") %>>
+                            <input type="text" class="form-control" id="id-form" placeholder="아이디" name="id" required="required" >
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="비밀번호" name="pw" required="required">
