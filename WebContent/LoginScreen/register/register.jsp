@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="register.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <title>Insert title here</title>
 <style type="text/css">
@@ -112,42 +113,79 @@ function checkValue(){
 </script>
 </head>
 <body>
-<center>
-Web Calendar 회원가입
-<form action="register-db.jsp" method="post" name="userInfo" onsubmit="return checkValue()">
-<table border="0" style="text-align:center;">
-	<tr>
-	<td> 이 름 </td>
-	<td><input type="text" name="name" size="15" onkeyup="nameCheck()"></td>
-	<td><i style="display:none;" id = "name-check-circle" class="fas fa-check-circle"></i></td>
-	</tr>
-	
-	<tr>
-	<td> 아이디 </td>
-	<td><input type="text" name="id" id="id" size="15" onkeyup="idCheck()">
-	<br><span id="idCheck"></span></td>
-	<td><i style="display:none;" id = "id-check-circle" class="fas fa-check-circle"></i></td>
-	</tr>
-	
-	<tr>
-	<td> 비밀번호 </td>
-	<td><input type="text" name="pw" size="15"></td>
-	</tr>
-	
-	<tr>
-	<td> 비밀번호 확인 </td>
-	<td><input type="text" name="pw2" size="15" onkeyup="pwCheck()"></td>
-	<td><i style="display:none;" id = "pw-check-circle" class="fas fa-check-circle"></i></td>
-	</tr>
-	
-	<tr>
-	<td> 이메일 </td>
-	<td><input type="text" name="email" size="30" onkeyup="emailCheck()"></td>
-	</tr>
-</table>
-<span id="registerCheck"></span><br>
-<input type="submit" value="회원가입">
-</form>
-</center>
+	<!-- header -->
+	<div id="header">
+    	<h1>Web Calendar</h1>
+    	<h3 id="header_comment">Web Calendar 계정으로 새로운 일정관리를 경험하세요</h3>
+    </div>
+    
+    <!-- wrapper -->
+    <form action="register-db.jsp" method="post" name="userInfo" onsubmit="return checkValue()">
+    	<div id="wrapper">
+    		<!-- content -->
+    		<div id="content">
+    			<!-- name -->
+    			<div>
+    				<h3 class="join_title"><label for="name">이름</label></h3>
+    				<span class="box int_name">
+    					<input type="text" name="name" id="name" class="int" maxlength="20" 
+    					onkeyup="nameCheck()">
+    					<i style="display:none;" id = "name-check-circle" class="fas fa-check-circle"></i>
+    				</span>
+    			</div>
+    			
+    			<!-- ID -->
+                <div>
+                    <h3 class="join_title">
+                        <label for="id">아이디</label>
+                    </h3>
+                    <span class="box int_id">
+                        <input type="text" name="id" id="id" class="int" maxlength="20" 
+                        onkeyup="idCheck()">
+                        <i style="display:none;" id = "id-check-circle" class="fas fa-check-circle"></i>
+                    </span>
+                    <span id="idCheck" class="error_next_box"></span>
+                </div>
+
+                <!-- PW1 -->
+                <div>
+                    <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
+                    <span class="box int_pass">
+                        <input type="text" name="pw" id="pswd1" class="int" maxlength="20" 
+                        onkeyup="pwCheck()">
+                    </span>
+                </div>
+
+                <!-- PW2 -->
+                <div>
+                    <h3 class="join_title"><label for="pswd2">비밀번호 확인</label></h3>
+                    <span class="box int_pass_check">
+                        <input type="text" name="pw2" id="pswd2" class="int" maxlength="20" 
+                        onkeyup="pwCheck()">
+                        <i style="display:none;" id = "pw-check-circle" class="fas fa-check-circle"></i>
+                    </span>
+                </div>
+                
+                <!-- EMAIL -->
+                <div>
+                    <h3 class="join_title"><label for="email">본인확인 이메일</label>(선택)</h3>
+                    <span class="box int_email">
+                        <input type="text" name="email" id="email" class="int" maxlength="100" 
+                        placeholder="아이디/비밀번호 찾기에 사용됩니다" onkeyup="emailCheck()">
+                    </span>
+                </div>
+                
+                <!-- JOIN BTN-->
+                <br><span id="registerCheck"></span>
+                <div class="btn_area">
+                    <button type="submit" id="btnJoin">
+                        <span>가입하기</span>
+                    </button>
+                </div>
+    		</div>
+    	</div>
+    </form>
+        
+        
 </body>
 </html>
