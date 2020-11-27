@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		selectable: true,
 		editable: true,
 		droppable: true,
-		//events: []
-
+		events:  /* [{"title":"event1","start":"2020-11-27","end":"2020-11-27"}]*/
+		'calendarjson.jsp',
 
 		dateClick: function(info) {
 			$("#addEvent-modal").modal({ fadeDuration: 100 });
