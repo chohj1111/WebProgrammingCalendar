@@ -25,7 +25,7 @@
 	    <nav id="sidebar">
 	      <br><br>
 	      <a href="#">친구목록</a>
-		  <a href="#">로그아웃</a>
+		  <a href="sidebar-action.jsp?act=logout">로그아웃</a>
 	    </nav>
 	    <div class="overlay"></div>
 	</div>
