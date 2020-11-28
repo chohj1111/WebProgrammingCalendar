@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="calendar.css">
 
 <!-- calendar_db로 전송 -->
- <%  String user_id = (String)session.getAttribute("user_id");%>
+<%-- <%  String id= request.getParameter("id"); %> --%>
 
 <title>WEB Calendar</title>
 </head>
@@ -29,7 +29,7 @@
 	    </nav>
 	    <div class="overlay"></div>
 	</div>
-	
+
 	<div id="calendar"></div>
 	<div id="content-box">
 		<form action="" method="get">
@@ -47,7 +47,7 @@
 		
 		<form id="calendar_insert_form" action="calendar-db/calendar-insert-db.jsp" method="get">
 		<!-- for calender-insert-db.jsp -->
-		<input type="hidden" name="user_id" value="<%=user_id%>">
+	<%-- 	<input type="hidden" name="id" value="<%=id%>"> --%>
 		
 		<table width="900px">
 			<tr>
@@ -96,7 +96,7 @@
 	
 	<form id="calendar_modify_form" action="calendar-db/calendar-modify-db.jsp" method="get">
 	<!-- for calender-insert-db.jsp -->
-	<input type="hidden" name="user_id" value="<%=user_id%>">
+	<%-- <input type="hidden" name="id" value="<%=id%>"> --%>
 	<table width="900px">
 		<tr>
 			<td><b>일정명</b></td>
