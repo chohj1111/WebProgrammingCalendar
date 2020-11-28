@@ -116,14 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		$('#calendar_modify_form').attr('action', 'calendar-db/calendar-modify-db.jsp');
 		$('#calendar_modify_form').append('<input type="hidden" name="id" value="'+ String(event_id)+'"/>');
 		$.modal.close();
-		//check required attribute	
-		for(var i=0; i < $('#calendar_modify_form').elements.length; i++){
-      		if($('#calendar_modify_form').elements[i].value == '' 
-				&& $('#calendar_modify_form').elements[i].hasAttribute('required')){
-			        alert('There are some required fields!');
-        			return false;
-      			}
-    	}
 		$('#calendar_modify_form').submit(); 
 	});
 
@@ -137,6 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		$('#calendar_modify_form').append('<input type="hidden" name="id" value="'+ String(event_id)+'"/>');
 		$.modal.close()
 		$('#calendar_modify_form').submit(); 
+	});
+	
+	//사이드바 사리지기
+	$('.overlay').on('click', function() {
+		$('#sidebar').removeClass('active');
+		$('.overlay').fadeOut();
 	});
 
 	//사이드바 사리지기
