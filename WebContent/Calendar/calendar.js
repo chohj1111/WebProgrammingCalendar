@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			
 			$("#editEvent-modal").modal({ fadeDuration: 100 });
 			$("#edit-title").val(info.event.title);
-			$("#edit-color").val(info.event.color);
+			$("#edit-color").val(info.event.backgroundColor).prop("selected", true);
 			$("#edit-start").val(info.event.startStr);
 			
 			if (!info.event.endStr) {
