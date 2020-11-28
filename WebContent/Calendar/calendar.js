@@ -105,9 +105,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 		//change form action to 'calendar-modify-db.jsp'
 		$('#calendar_modify_form').attr('action', 'calendar-db/calendar-modify-db.jsp');
-
 		$('#calendar_modify_form').append('<input type="hidden" name="id" value="'+ String(event_id)+'"/>');
-		$.modal.close()
+		$.modal.close();
+		//check required attribute	
+		for(var i=0; i < $('#calendar_modify_form').elements.length; i++){
+      		if($('#calendar_modify_form').elements[i].value == '' 
+				&& $('#calendar_modify_form').elements[i].hasAttribute('required')){
+			        alert('There are some required fields!');
+        			return false;
+      			}
+    	}
 		$('#calendar_modify_form').submit(); 
 	});
 

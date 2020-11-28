@@ -49,7 +49,7 @@
 				<td><b>색상</b></td>
 				<td>
 					<select name="color" id="input-color" required="required">
-						<option value="Default">기본 색상</option>
+						<option value="Default" selected>기본 색상</option>
 						<option value="Red" style="color: Red;">빨간색</option>
 						<option value="Purple" style="color: Purple;">보라색</option>
 						<option value="Orange" style="color: Orange;">주황색</option>
@@ -96,17 +96,17 @@
 		<tr>
 			<td><b>색상</b></td>
 			<td>
-			<select name="color" id="edit-color" required="required">
-				<option>기본 색상</option>
-				<option value="Red" style="color: Red;">빨간색</option>
-				<option value="Purple" style="color: Purple;">보라색</option>
-				<option value="Orange" style="color: Orange;">주황색</option>
-				<option value="Blue" style="color: Blue;">파란색</option>
-				<option value="Pink" style="color: Pink;">핑크색</option>
-				<option value="LightGreen" style="color: LightGreen;">연두색</option>
-				<option value="Green" style="color: Green;">초록색</option>
-				<option value="Indigo" style="color: Indigo;">남색</option>
-			</select>
+				<select name="color" id="edit-color" required="required">
+						<option value="Default" selected>기본 색상</option>
+						<option value="Red" style="color: Red;">빨간색</option>
+						<option value="Purple" style="color: Purple;">보라색</option>
+						<option value="Orange" style="color: Orange;">주황색</option>
+						<option value="Blue" style="color: Blue;">파란색</option>
+						<option value="Pink" style="color: Pink;">핑크색</option>
+						<option value="LightGreen" style="color: LightGreen;">연두색</option>
+						<option value="Green" style="color: Green;">초록색</option>
+						<option value="Indigo" style="color: Indigo;">남색</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
