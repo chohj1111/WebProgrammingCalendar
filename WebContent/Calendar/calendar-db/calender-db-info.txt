@@ -3,10 +3,12 @@
 use mycal;
 
 create table plan (
-title varchar(20) not null,
-color varchar(20) not null,
-startdate DATE  not null,
-enddate DATE  not null,
-memo varchar(40),
-id int not null auto_increment primary key
+	title varchar(20) not null,
+	color varchar(20) not null,
+	startdate DATE  not null,
+	enddate DATE  not null,
+	memo varchar(40),
+	id int not null auto_increment primary key,
+	user_id varchar(20) not null,
+	FOREIGN KEY (user_id) REFERENCES member(id)
 );

@@ -25,14 +25,16 @@ try{
 	
 	if(rs.next()) {	
 		if(pw.equals(rs.getString("pw"))){
-			redirectURL = "../../Calendar/calendar.jsp";
+			redirectURL = "../../LoginSession";
+			
 			%>
 			<form name="loginSuccess" action="<%=redirectURL%>" method="post">
-				<input type="hidden" name="id" value="<%=id%>">
+				<input type="hidden" name="user_id" value="<%=id%>">
 			</form>
-			<script type="text/javascript">document.loginSuccess.submit();</script>
+			<script type="text/javascript">document.loginSuccess.submit();</script> 
 			<%
 			//out.println("<script>location.href='"+redirectURL+"';</script>");
+			
 		}
 	}
 	String msg = "가입되지 않은 아이디이거나, 잘못된 비밀번호입니다";

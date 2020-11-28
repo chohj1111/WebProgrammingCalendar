@@ -11,7 +11,7 @@
 <html>
 <body>
 <%
-String id,title,color,startdate, enddate, memo; 
+String id,title,color,startdate, enddate, memo,user_id; 
 Connection conn = null;
 PreparedStatement pstmt = null;
 Statement stmt = null;
@@ -40,13 +40,13 @@ enddate = request.getParameter("enddate");
 		
 }  */
 memo = request.getParameter("memo");
-
+user_id = request.getParameter("user_id");
 
 try{
 	Class.forName("com.mysql.jdbc.Driver");
 	String url = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
 	conn = DriverManager.getConnection(url, "root", "0000");
-	sql_update = "update plan set title=?,color=?,startdate=?,enddate=?,memo=? where id=?";
+	sql_update = "update plan set title=?,color=?,startdate=?,enddate=?,memo=? where id=? and user_id=?";
 	pstmt = conn.prepareStatement(sql_update);
 	pstmt.setString(1,title);
 	pstmt.setString(2,color);
@@ -55,24 +55,23 @@ try{
 	if(memo!=null) pstmt.setString(5,memo);
 	else pstmt.setNull(5,Types.VARCHAR);
 	pstmt.setString(6,id);
+	pstmt.setString(7,user_id);
+	out.println(pstmt);
 	pstmt.executeUpdate();
 
 
-}catch(Exception e){
+}	// redirection 필요
+catch(Exception e) {
 %>
-	<script language = "javascript">
-		alert("DB 연동 오류입니다!  ";
-		response.sendRedirect(redirectURL);
-	</script>
-	
+	<script type="text/javascript">
+		alert("DB 연동 오류입니다.");
+	</script> 
 <% 
+	//response.sendRedirect(redirectURL);
 }
 // back to calendar
 redirectURL = "../calendar.jsp"; 
-
 response.sendRedirect(redirectURL);
-
 %>
-
 </body>
 </html>
