@@ -3,8 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
 	// to get id from event 
 	var event_id;
 	calendar = new FullCalendar.Calendar(calendarEl, {
+		customButtons: {
+			sidebarButton: {
+				text: '☰',
+				click: function() {
+					$('#sidebar').addClass('active');
+					$('.overlay').fadeIn();
+				}
+			}
+		},
 		headerToolbar: {
-			left: 'prevYear,prev,next,nextYear today',
+			left: 'sidebarButton prevYear,prev,next,nextYear today',
 			center: 'title',
 			right: 'dayGridMonth,dayGridWeek,dayGridDay'
 		},
@@ -128,6 +137,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		$('#calendar_modify_form').append('<input type="hidden" name="id" value="'+ String(event_id)+'"/>');
 		$.modal.close()
 		$('#calendar_modify_form').submit(); 
+	});
+
+	//사이드바 사리지기
+	$('.overlay').on('click', function() {
+		$('#sidebar').removeClass('active');
+		$('.overlay').fadeOut();
 	});
 
 	var currentdate = calendar.getDate();

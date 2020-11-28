@@ -21,6 +21,15 @@
 <title>WEB Calendar</title>
 </head>
 <body>
+	<div id="sidebar-wrap">
+	    <nav id="sidebar">
+	      <br><br>
+	      <a href="#">친구목록</a>
+		  <a href="#">로그아웃</a>
+	    </nav>
+	    <div class="overlay"></div>
+	</div>
+
 	<div id="calendar"></div>
 	<div id="content-box">
 		<form action="" method="get">
