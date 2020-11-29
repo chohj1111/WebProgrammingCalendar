@@ -78,7 +78,7 @@
                             </button>
                         </div>
                         <div class="form-group text-center">
-                        	<a href="#" id="find-id-pw">아이디를 잊으셨나요?</a>
+                        	<a href="find/find.jsp" id="find-id-pw">아이디를 잊으셨나요?</a>
                         </div>
                     </form>
                 </div>
