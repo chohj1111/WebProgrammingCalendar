@@ -5,15 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="../find.css">
 </head>
 <body>
-<form action="compare.jsp" method="post" >
+<br>
+<form action="compare.jsp" method="post">
 	<%=(String)session.getAttribute("email") %><br>로 인증번호를 발송했습니다.<br>
-	<input name="userInput" type="text" placeholder="인증번호 입력">
+	<input name="userInput" type="text" placeholder="인증번호 입력"><br><br>
 	<input type="hidden" name="email" value=<%=(String)session.getAttribute("email") %>>
 	<input type="hidden" name="id" value=<%=(String)session.getAttribute("id") %>>
-	<button id="check" type="submit">인증번호확인</button><br>
+	<button id="check" type="submit" 
+		class="btn btn-skyblue btn-block form-submit">인증번호 확인</button><br>
 </form>
 </body>
 </html>
