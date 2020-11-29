@@ -20,16 +20,17 @@ try{
 	String url = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
 	conn = DriverManager.getConnection(url, "root", "0000");
 	stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-	sql = "select id, pw from member where id='"+id+"'";
+	sql = "select id, pw, name from member where id='"+id+"'";
 	rs = stmt.executeQuery(sql);
 	
 	if(rs.next()) {	
 		if(pw.equals(rs.getString("pw"))){
 			redirectURL = "../../LoginSession";
-			
+			String name = rs.getString("name");
 			%>
 			<form name="loginSuccess" action="<%=redirectURL%>" method="post">
 				<input type="hidden" name="user_id" value="<%=id%>">
+				<input type="hidden" name="user_name" value="<%=name%>">
 			</form>
 			<script type="text/javascript">document.loginSuccess.submit();</script> 
 			<%

@@ -30,9 +30,13 @@ public class LoginSession extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		String user_id = request.getParameter("user_id");
+		String user_name = request.getParameter("user_name");
 		HttpSession session = request.getSession();
 		session.setAttribute("user_id", user_id);
+		session.setAttribute("user_name", user_name);
+		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<HTML>");
@@ -40,6 +44,7 @@ public class LoginSession extends HttpServlet {
 		out.println("<BODY>");
 		out.println("<form name=sessionToCalendar action=Calendar/calendar.jsp method=post>");
 		out.println("<input type=hidden name=user_id value="+user_id+">");
+		out.println("<input type=hidden name=user_name value="+user_name+">");
 		out.println("</form>");
 		out.println("<script type=\"text/javascript\">document.sessionToCalendar.submit();</script>"); 
 		out.println("</BODY>");

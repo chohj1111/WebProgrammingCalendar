@@ -126,6 +126,24 @@ fieldset {
   display: block;
   transition: 0.3s;
 }
+
+#user-name {
+  padding: 0px 0px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+#user-msg {
+  padding: 0px 0px 8px 32px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
 .overlay {
     position: fixed;
     width: 100%;

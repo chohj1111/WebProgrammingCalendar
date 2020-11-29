@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,10 @@
 <link rel="stylesheet" type="text/css" href="calendar.css">
 
 <!-- calendar_db로 전송 -->
-<%  String user_id = (String)session.getAttribute("user_id");%>
+<%  
+	String user_id = (String)session.getAttribute("user_id");
+	String user_name = (String)session.getAttribute("user_name");
+%>
 
 <title>WEB Calendar</title>
 </head>
@@ -24,6 +28,13 @@
 	<div id="sidebar-wrap">
 	    <nav id="sidebar">
 	      <br><br>
+	      <div id="user-name">
+	      	<%
+	      		if(user_id == null) out.println("guest");
+	      		else out.println(user_name);
+	      	%>
+	      </div>
+	      <div id="user-msg">님 반갑습니다.</div><br><br>
 	      <a href="#">친구목록</a>
 		  <a href="sidebar-action.jsp?act=logout">로그아웃</a>
 	    </nav>
