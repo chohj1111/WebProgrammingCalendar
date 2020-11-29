@@ -13,10 +13,9 @@
 <body>
 <%
 String id = request.getParameter("id");
-
+String email = request.getParameter("email");
 if(request.getParameter("userInput").equals(DoCompare.getCode())){
 	if(id == null || id.equals("") || id.equals("null")){
-		String email = request.getParameter("email");
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -57,10 +56,16 @@ if(request.getParameter("userInput").equals(DoCompare.getCode())){
 	}
 }else{
 	out.println("인증번호가 다릅니다");
+	%>
+	<form action="compare.jsp" method="post" >
+		인증번호를 다시 입력하세요.<br>
+		<input name="userInput" type="text" placeholder="인증번호 입력">
+		<input type="hidden" name="email" value=<%=email %>>
+		<input type="hidden" name="id" value=<%=id %>>
+		<button id="check" type="submit">인증번호확인</button><br>
+	</form>
+	<% 
 }
-
-DoCompare.setCode("1");
-DoCompare.setInput("1");
 %>
 </body>
 </html>

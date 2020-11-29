@@ -9,6 +9,7 @@
 </head>
 <body>
 <form action="compare.jsp" method="post" >
+	<%=(String)session.getAttribute("email") %><br>로 인증번호를 발송했습니다.<br>
 	<input name="userInput" type="text" placeholder="인증번호 입력">
 	<input type="hidden" name="email" value=<%=(String)session.getAttribute("email") %>>
 	<input type="hidden" name="id" value=<%=(String)session.getAttribute("id") %>>
