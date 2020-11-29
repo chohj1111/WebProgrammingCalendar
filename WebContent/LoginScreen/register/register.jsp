@@ -36,15 +36,15 @@
                             </div><span id="idCheck" class="error_next_box">&nbsp;</span>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="이메일" />
+                                <input type="email" name="email" id="email" maxlength="40" placeholder="이메일" />
                             </div><br>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pw" id="pswd1" placeholder="비밀번호" onkeyup="pwCheck()" />
+                                <input type="password" name="pw" id="pswd1" placeholder="비밀번호" maxlength="20" onkeyup="pwCheck()" />
                             </div><br>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="pw2" id="pswd2" placeholder="비밀번호 확인" onkeyup="pwCheck()" />
+                                <input type="password" name="pw2" id="pswd2" placeholder="비밀번호 확인" maxlength="20" onkeyup="pwCheck()" />
                                 <i style="display:none;" id = "pw-check-circle" class="fas fa-check-circle"></i>
                             </div><br>
                             <span id="registerCheck">&nbsp;</span><br><br>
