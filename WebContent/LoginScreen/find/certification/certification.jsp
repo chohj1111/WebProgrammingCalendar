@@ -26,7 +26,7 @@ DoCompare.setCode(Integer.toString(r));
 String from = "webcalendar12@gmail.com";
 String to = (String)session.getAttribute("email");
 String number = Integer.toString(r);
-String subject = "이메일 발송 테스트1";
+String subject = "Web Calendar 인증이메일";
 String content = "이메일 발송 테스트 본문";
 String redirectURL = "compare.jsp";
  
