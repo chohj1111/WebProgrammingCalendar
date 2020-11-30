@@ -44,6 +44,7 @@
                 <div class="col-md-6 caption">
                     <h1>Web Calendar</h1>
                     <h2>
+                        #
                         <span class="animated-text"></span>
                         <span class="typed-cursor"></span>
                     </h2>
@@ -77,7 +78,7 @@
                             </button>
                         </div>
                         <div class="form-group text-center">
-	                        <a href="find/find.jsp" id="find-id-pw">아이디를 잊으셨나요?</a>
+                        	<a href="find/find.jsp" id="find-id-pw">아이디를 잊으셨나요?</a>
                         </div>
                     </form>
                 </div>
