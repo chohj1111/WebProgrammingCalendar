@@ -151,3 +151,14 @@ fieldset {
     z-index: 998;
     display: none;
 }
+
+.user-search-btn {
+  background-color: SteelBlue;
+  color: white;
+  padding: 5px 18px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  align-self: center;
+  cursor: pointer;
+}

@@ -35,8 +35,9 @@
 	      	%>
 	      </div>
 	      <div id="user-msg">님 반갑습니다.</div><br><br>
+	      <a id="user-search" href="#">사용자 검색</a>
 	      <a href="#">친구목록</a>
-		  <a href="sidebar-action.jsp?act=logout">로그아웃</a>
+		  <a id="logout" href="#">로그아웃</a>
 	    </nav>
 	    <div class="overlay"></div>
 	</div>
@@ -105,51 +106,62 @@
 	<div id="editEvent-modal" class="modal">
 	<h2>일정 수정</h2><hr><br>
 	
-	<form id="calendar_modify_form" action="calendar-db/calendar-modify-db.jsp" method="get">
-	<!-- for calender-insert-db.jsp -->
-	<input type="hidden" name="user_id" value="<%=user_id%>">
-	<table width="900px">
-		<tr>
-			<td><b>일정명</b></td>
-			<td><input type="text" name="title" id="edit-title" required="required"></td>
-		</tr>
-		<tr>
-			<td><b>색상</b></td>
-			<td>
-				<select name="color" id="edit-color" required="required">
-						<option value="Default" selected>기본 색상</option>
-						<option value="Red" style="color: Red;">빨간색</option>
-						<option value="Purple" style="color: Purple;">보라색</option>
-						<option value="Orange" style="color: Orange;">주황색</option>
-						<option value="Blue" style="color: Blue;">파란색</option>
-						<option value="Pink" style="color: Pink;">핑크색</option>
-						<option value="LightGreen" style="color: LightGreen;">연두색</option>
-						<option value="Green" style="color: Green;">초록색</option>
-						<option value="Indigo" style="color: Indigo;">남색</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td><b>시작</b></td>
-			<td><input id="edit-start" type="date" placeholder="YYYY-MM-DD" name="startdate" required="required"></td>
-		</tr>
-		<tr>
-			<td><b>종료</b></td>
-			<td><input id="edit-end" type="date" placeholder="YYYY-MM-DD" name="enddate" required="required"></td>
-		</tr>
-		<tr>
-			<td><b>메모</b></td>
-			<td><textarea id="edit-memo" name="memo" rows="5"></textarea></td>
-		</tr>
-	</table>
-	<br><hr><br>
-	
-	<button type="button" id="edit-save" class="pop-save-btn">수정</button>
-	&nbsp;&nbsp;
-	<button type="button" id="edit-delete" class="pop-delete-btn">삭제</button>
-	&nbsp;&nbsp;
-	<button type="button" class="pop-close-btn" onclick="$.modal.close()">닫기</button>
-	</form>
-</div>
+		<form id="calendar_modify_form" action="calendar-db/calendar-modify-db.jsp" method="get">
+		<!-- for calender-insert-db.jsp -->
+		<input type="hidden" name="user_id" value="<%=user_id%>">
+		<table width="900px">
+			<tr>
+				<td><b>일정명</b></td>
+				<td><input type="text" name="title" id="edit-title" required="required"></td>
+			</tr>
+			<tr>
+				<td><b>색상</b></td>
+				<td>
+					<select name="color" id="edit-color" required="required">
+							<option value="Default" selected>기본 색상</option>
+							<option value="Red" style="color: Red;">빨간색</option>
+							<option value="Purple" style="color: Purple;">보라색</option>
+							<option value="Orange" style="color: Orange;">주황색</option>
+							<option value="Blue" style="color: Blue;">파란색</option>
+							<option value="Pink" style="color: Pink;">핑크색</option>
+							<option value="LightGreen" style="color: LightGreen;">연두색</option>
+							<option value="Green" style="color: Green;">초록색</option>
+							<option value="Indigo" style="color: Indigo;">남색</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>시작</b></td>
+				<td><input id="edit-start" type="date" placeholder="YYYY-MM-DD" name="startdate" required="required"></td>
+			</tr>
+			<tr>
+				<td><b>종료</b></td>
+				<td><input id="edit-end" type="date" placeholder="YYYY-MM-DD" name="enddate" required="required"></td>
+			</tr>
+			<tr>
+				<td><b>메모</b></td>
+				<td><textarea id="edit-memo" name="memo" rows="5"></textarea></td>
+			</tr>
+		</table>
+		<br><hr><br>
+		
+		<button type="button" id="edit-save" class="pop-save-btn">수정</button>
+		&nbsp;&nbsp;
+		<button type="button" id="edit-delete" class="pop-delete-btn">삭제</button>
+		&nbsp;&nbsp;
+		<button type="button" class="pop-close-btn" onclick="$.modal.close()">닫기</button>
+		</form>
+	</div>
+	<div id="user-search-modal" class="modal">
+		<h2>유저 검색</h2><hr><br>
+		<input id="username-input" type="text" name="name" 
+			style="width: 300px;" placeholder="이름으로 검색하기" required>
+		&nbsp;&nbsp;
+		<input type="hidden" name="act" value="search">
+		<button type="button" id="user-search-btn" class="user-search-btn">검색</button>
+		<br><br>
+		<div id="user-search-result"></div>
+		<br><br>
+	</div>
 </body>
 </html>
