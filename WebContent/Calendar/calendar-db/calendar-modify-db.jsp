@@ -56,18 +56,12 @@ try{
 	else pstmt.setNull(5,Types.VARCHAR);
 	pstmt.setString(6,id);
 	pstmt.setString(7,user_id);
-	out.println(pstmt);
 	pstmt.executeUpdate();
 
 
 }	// redirection 필요
 catch(Exception e) {
-%>
-	<script type="text/javascript">
-		alert("DB 연동 오류입니다.");
-	</script> 
-<% 
-	//response.sendRedirect(redirectURL);
+	out.println("DB 연동 오류입니다. : " + e.getMessage());
 }
 // back to calendar
 redirectURL = "../calendar.jsp"; 

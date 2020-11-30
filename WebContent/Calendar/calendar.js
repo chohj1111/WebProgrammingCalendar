@@ -1,3 +1,8 @@
+// import momentjs
+var momentJS = document.createElement('script');  
+momentJS.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js');
+document.head.appendChild(momentJS);
+
 document.addEventListener('DOMContentLoaded', function() {
 	var calendarEl = document.getElementById('calendar');
 	// to get id from event 
@@ -29,6 +34,77 @@ document.addEventListener('DOMContentLoaded', function() {
 		events:  /* [{"title":"event1","start":"2020-11-27","end":"2020-11-27"}]*/
 		'calendarjson.jsp',
 
+		// drop within calendar
+		// there is no need to modify color or memo(description) 
+		eventDrop: function (info) {
+			var start_moment = moment(info.event.start);
+			var end_moment = moment(info.event.end);
+			//일정이 2일 이상일 경우 종료일에서 하루 더 추가 (full calendar 문제인듯)
+			if (!start_moment.isSame(end_moment,'day')) {
+				end_moment = end_moment.subtract(1, "days");
+			}
+			var startdateString =  start_moment.format('YYYY-MM-DD');
+			var enddateString = end_moment.format('YYYY-MM-DD');
+			//alert(startdateString+enddateString);
+						
+			$.ajax({
+            	url:'../CalendarAjax',
+				type    : 'post',
+				dataType: 'json',
+                data    : {
+                   	id: info.event.id,
+        			title: info.event.title,
+        			startdate: startdateString,
+        			enddate: enddateString   
+                },    	   
+    	        success: function(result) { //we got the response
+             		//alert('Successfully called');
+       			  }	,
+         		error: function(jqXHR, textStatus, errorThrown) {
+              		console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+         		}
+
+	       });
+
+		  calendar.render();
+		},
+		
+		//resize는 end date 조정 필요 x 
+		eventResize: function (info) {
+			var start_moment = moment(info.event.start);
+			var end_moment = moment(info.event.end);
+			//일정이 2일 이상일 경우 종료일에서 하루 더 추가 (full calendar 문제인듯)
+			if (!start_moment.isSame(end_moment,'day')) {
+				end_moment = end_moment.subtract(1, "days");
+			}
+			var startdateString =  start_moment.format('YYYY-MM-DD');
+			var enddateString = end_moment.format('YYYY-MM-DD');
+			alert(startdateString+enddateString);
+						
+						
+			$.ajax({
+            	url:'../CalendarAjax',
+				type    : 'post',
+				dataType: 'json',
+                data    : {
+                   	id: info.event.id,
+        			title: info.event.title,
+        			startdate: startdateString,
+        			enddate: enddateString   
+                },    	   
+    	        success: function(result) { //we got the response
+             	//	alert('Successfully called');
+       			  }	,
+         		error: function(jqXHR, textStatus, errorThrown) {
+              		console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+         		}
+
+	       });
+
+		  calendar.render();
+		},
+		
+					
 		dateClick: function(info) {
 			$("#addEvent-modal").modal({ fadeDuration: 100 });
 			$("#input-start").val(info.dateStr);
