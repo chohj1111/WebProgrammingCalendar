@@ -152,8 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	//사용자 검색
 	$('#user-search-btn').on('click', function() {
 		var username = $("#username-input").val();
+		username = encodeURIComponent(username);
 		var url = "sidebar-action.jsp?act=search&username="+username;
 		$.ajax({
+			cache: false,
 			type: "GET",
 			url : url,
 			dataType : "html",
