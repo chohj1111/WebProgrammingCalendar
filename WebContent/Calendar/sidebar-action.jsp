@@ -29,7 +29,7 @@
 		    rs = stmt.executeQuery(sql);
 		    int cnt = 0;
 		    while(rs.next()) {
-		    	response.getWriter().write(rs.getString("name")+"&nbsp;&nbsp;&nbsp;");
+		    	response.getWriter().write(rs.getString("name")+" ("+rs.getString("id")+")"+"&nbsp;&nbsp;&nbsp;");
 		    	response.getWriter().write("<button type='button' class='follow-btn'");
 		    	response.getWriter().write(" value='"+rs.getString("id")+"'>팔로우</button><br><br>");
 		    	cnt++;
@@ -45,6 +45,5 @@
 		catch(Exception e){
 			out.println("DB 연동 오류입니다.:"+e.getMessage());
 		}
-		
 	}
 %>

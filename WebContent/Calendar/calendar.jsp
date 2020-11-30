@@ -21,6 +21,7 @@
 	String user_id = (String)session.getAttribute("user_id");
 	String user_name = (String)session.getAttribute("user_name");
 %>
+<script>var myID="<%=user_id%>"</script>
 
 <title>WEB Calendar</title>
 </head>
@@ -36,7 +37,7 @@
 	      </div>
 	      <div id="user-msg">님 반갑습니다.</div><br><br>
 	      <a id="user-search" href="#">사용자 검색</a>
-	      <a href="#">친구목록</a>
+	      <a href="#">팔로우 목록</a>
 		  <a id="logout" href="#">로그아웃</a>
 	    </nav>
 	    <div class="overlay"></div>

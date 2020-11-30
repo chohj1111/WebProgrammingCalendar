@@ -34,3 +34,10 @@ $('#user-search-btn').on('click', function() {
 		}
 	});
 });
+
+$(document).on('click', ".follow-btn", (e) => { 
+	var targetID = e.target.value;
+	//myID는 calendar.jsp에 상단 script에 선언
+	var url = "follow/follow-db.jsp?myID="+myID+"&targetID="+targetID; 
+	window.location.href=url;
+});
