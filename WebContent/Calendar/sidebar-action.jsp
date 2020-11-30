@@ -20,7 +20,7 @@
 		response.setContentType("text/html");
 		
 		username = request.getParameter("username");
-		String sql = "select name, email from member where name='"+username+"'";
+		String sql = "select name, id from member where name='"+username+"'";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		    String jdbcurl = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
@@ -29,7 +29,9 @@
 		    rs = stmt.executeQuery(sql);
 		    int cnt = 0;
 		    while(rs.next()) {
-		    	response.getWriter().write(rs.getString("name")+"<br>");
+		    	response.getWriter().write(rs.getString("name")+"&nbsp;&nbsp;&nbsp;");
+		    	response.getWriter().write("<button type='button' class='follow-btn'");
+		    	response.getWriter().write(" value='"+rs.getString("id")+"'>팔로우</button><br><br>");
 		    	cnt++;
 		    }
 		    if(cnt == 0) {

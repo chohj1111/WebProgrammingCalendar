@@ -162,3 +162,14 @@ fieldset {
   align-self: center;
   cursor: pointer;
 }
+
+.follow-btn {
+  background-color: salmon;
+  color: white;
+  padding: 3px 18px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  align-self: center;
+  cursor: pointer;
+}

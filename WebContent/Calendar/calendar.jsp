@@ -163,5 +163,6 @@
 		<div id="user-search-result"></div>
 		<br><br>
 	</div>
+	<script type="text/javascript" src="sidebar.js"></script>
 </body>
 </html>
