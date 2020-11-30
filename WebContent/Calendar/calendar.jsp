@@ -37,7 +37,7 @@
 	      </div>
 	      <div id="user-msg">님 반갑습니다.</div><br><br>
 	      <a id="user-search" href="#">사용자 검색</a>
-	      <a href="#">팔로우 목록</a>
+	      <a id="follow-list" href="#">팔로우 목록</a>
 		  <a id="logout" href="#">로그아웃</a>
 	    </nav>
 	    <div class="overlay"></div>
@@ -164,6 +164,15 @@
 		<div id="user-search-result"></div>
 		<br><br>
 	</div>
+	
+	<div id="follow-list-modal" class="modal">
+		<h1><%=user_name%></h1>
+		<h4>&nbsp;님의 팔로우 목록</h4><hr><br>
+		<br><br>
+		<div id="follow-list-result"></div>
+		<br><br>
+	</div>
+	
 	<script type="text/javascript" src="sidebar.js"></script>
 </body>
 </html>
