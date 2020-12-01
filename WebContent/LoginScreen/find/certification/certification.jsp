@@ -45,10 +45,6 @@ try{
     MimeMessage msg = new MimeMessage(ses); // 메일의 내용을 담을 객체  
 
     msg.setSubject(subject); //  제목 
-
-    StringBuffer buffer = new StringBuffer(); 
-    buffer.append("인증 번호 : ");
-    buffer.append(number+"");
     
 	Address fromAddr = new InternetAddress(from);
 	msg.setFrom(fromAddr);	
@@ -56,7 +52,15 @@ try{
 	Address toAddr = new InternetAddress(to);
 	msg.addRecipient(Message.RecipientType.TO, toAddr); // 받는 사람 
 	
-	msg.setContent(buffer.toString(), "text/html;charset=UTF-8"); // 내용
+	msg.setContent("<head><meta charset='urf-8'></head>"+"<body style='color:darkgray;'>"
+				+"<center><div style='background:#212429;color:darkgray; width:70%; font-weight:bolder;'><br><br>"
+				+"<h2 style='color:darkgray;background:#212429'>"+to+" 님 반갑습니다,</h2>"
+				+"<h1 style='color:darkgray;background:#212429'>WEB Calendar 인증 이메일입니다.</h1>"
+				+"<h2 style='color:darkgray;background:#212429'>자격 증명을 위한 인증번호는 다음과 같습니다.</h2>"
+				+"<h2 style='color:#ff9e00;background:#101112; width:20%; font-size:40px'>"+ number +"</h2><br><br>"
+				+"<h5 style='color:darkgray;background:#212429; width:40%; border-left:3px solid #ff9e00'><br>Copyrightⓒ2020  Web Calendar All rights reserved.<br><br></h5><br>"
+				+"</div></center></body>",
+				"text/html;charset=UTF-8"); // 내용
 	Transport.send(msg); // 전송   
 	
 	%><jsp:forward page="test.jsp"></jsp:forward><%

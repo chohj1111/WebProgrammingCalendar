@@ -32,6 +32,7 @@ try{
 	pstmt.setString(4,email);
 	pstmt.executeUpdate();
 	%>
+    <script>alert("<%=name%>님 가입을 축하드립니다.");</script>
 	<form name="RegisterSuccess" action="<%=redirectURL%>" method="post">
 				<input type="hidden" name="id" value="<%=id%>">
 	</form>
