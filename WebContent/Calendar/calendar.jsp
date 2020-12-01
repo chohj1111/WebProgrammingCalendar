@@ -18,7 +18,17 @@
 
 <!-- calendar_db로 전송 -->
 <%  
+	// 세션이 없을 때 로그인 화면으로 redirect  
+	if (session.getAttribute("user_id") == null ||session.getAttribute("user_id").equals("")){
+	%>
+	     <script>
+	          alert("로그인이 필요합니다." );
+	          window.location = '../LoginScreen/loginscreen.jsp';
+	     </script> 
+	<%
+	}
 	String user_id = (String)session.getAttribute("user_id");
+	
 	String user_name = (String)session.getAttribute("user_name");
 %>
 <script>var myID="<%=user_id%>"</script>

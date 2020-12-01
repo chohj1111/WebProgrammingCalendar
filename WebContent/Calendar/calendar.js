@@ -7,22 +7,17 @@ document.head.appendChild(momentJS);
 // check if requestPermission 
 // true : promise-based syntax(latest)
 // false : old,deprecated(eg : safari )
-window.addEventListener('load', function () {
-  // At first, let's check if we have permission for notification
-  // If not, let's ask for it
-  if (window.Notification && Notification.permission !== "granted") {
-    Notification.requestPermission(function (status) {
-      if (Notification.permission !== status) {
-        Notification.permission = status;
-      }
-    });
-  }
-});
-
 
 
 // calendar
 document.addEventListener('DOMContentLoaded', function() {
+	 if (window.Notification && Notification.permission !== "granted") {
+    Notification.requestPermission(function (status) {
+      if (Notification.permission !== status) {
+        Notification.permission = status;
+      		}
+    	});
+  	}
 	var calendarEl = document.getElementById('calendar');
 	// to get id from event 
 	var event_id;
