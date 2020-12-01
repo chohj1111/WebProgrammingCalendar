@@ -173,3 +173,25 @@ fieldset {
   align-self: center;
   cursor: pointer;
 }
+
+.follow-delete-btn {
+  background-color: red;
+  color: white;
+  padding: 3px 18px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.follow-watch-btn {
+  background-color: SteelBlue;
+  color: white;
+  padding: 3px 18px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  align-self: center;
+  cursor: pointer;
+}

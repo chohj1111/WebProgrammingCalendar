@@ -67,3 +67,19 @@ $(document).on('click', ".follow-btn", function(e) {
 		window.location.href=url;
 	}
 );
+
+$(document).on('click', ".follow-delete-btn", function(e) { 
+		var targetID = e.target.value;
+		//myID는 calendar.jsp에 상단 script에 선언
+		var url = "follow/follow-delete-db.jsp?myID="+myID+"&targetID="+targetID; 
+		window.location.href=url;
+	}
+);
+
+$(document).on('click', ".follow-watch-btn", function(e) { 
+		var targetID = e.target.value;
+		var title = targetID+"'s calendar";
+		var url = "follow/follow-calendar.jsp?id="+targetID;
+		window.open(url,title,"_blank","toolbar=no, menubar=no, resizable=yes");
+	}
+);

@@ -35,7 +35,10 @@
 				if(rs2.next()){
 			    	response.getWriter().write(rs2.getString("name")+"&nbsp;(");
 			    	response.getWriter().write(id+")&nbsp;&nbsp;&nbsp;");
-			    	response.getWriter().write("<br>");
+			    	response.getWriter().write("<button type='button' class='follow-watch-btn'");
+			    	response.getWriter().write(" value='"+id+"'>보기</button>&nbsp;");
+			    	response.getWriter().write("<button type='button' class='follow-delete-btn'");
+			    	response.getWriter().write(" value='"+id+"'>삭제</button><br>");
 			    	response.getWriter().write("<br>");
 				}
 		    }
