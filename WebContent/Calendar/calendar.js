@@ -3,6 +3,25 @@ var momentJS = document.createElement('script');
 momentJS.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js');
 document.head.appendChild(momentJS);
 
+// notification in calendar 
+// check if requestPermission 
+// true : promise-based syntax(latest)
+// false : old,deprecated(eg : safari )
+window.addEventListener('load', function () {
+  // At first, let's check if we have permission for notification
+  // If not, let's ask for it
+  if (window.Notification && Notification.permission !== "granted") {
+    Notification.requestPermission(function (status) {
+      if (Notification.permission !== status) {
+        Notification.permission = status;
+      }
+    });
+  }
+});
+
+
+
+// calendar
 document.addEventListener('DOMContentLoaded', function() {
 	var calendarEl = document.getElementById('calendar');
 	// to get id from event 
@@ -30,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		initialView: 'dayGridMonth',
 		selectable: true,
 		editable: true,
+		eventResizableFromStart :true,
 		droppable: true,
-		events:  /* [{"title":"event1","start":"2020-11-27","end":"2020-11-27"}]*/
-		'calendarjson.jsp',
+		events: 'calendarjson.jsp',
 
 		// drop within calendar
 		// there is no need to modify color or memo(description) 
@@ -45,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 			var startdateString =  start_moment.format('YYYY-MM-DD');
 			var enddateString = end_moment.format('YYYY-MM-DD');
-			//alert(startdateString+enddateString);
+			
 						
 			$.ajax({
             	url:'../CalendarAjax',
@@ -79,8 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 			var startdateString =  start_moment.format('YYYY-MM-DD');
 			var enddateString = end_moment.format('YYYY-MM-DD');
-			alert(startdateString+enddateString);
-						
 						
 			$.ajax({
             	url:'../CalendarAjax',
