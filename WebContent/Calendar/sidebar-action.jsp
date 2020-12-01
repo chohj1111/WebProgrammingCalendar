@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="connection.DBConnection" %>
 <%@ page import="java.text.*" %>
 <% 
 	request.setCharacterEncoding("utf-8");
@@ -22,9 +23,7 @@
 		username = request.getParameter("username");
 		String sql = "select name, id from member where name='"+username+"'";
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		    String jdbcurl = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
-		    conn = DriverManager.getConnection(jdbcurl, "root", "0000");		
+			conn = DBConnection.getCon();	
 		    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		    rs = stmt.executeQuery(sql);
 		    int cnt = 0;

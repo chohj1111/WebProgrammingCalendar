@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.text.*" %>
+<%@ page import="connection.DBConnection" %>
+
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -21,9 +23,7 @@ email = request.getParameter("email");
 sql_update = "insert into member values(?,?,?,?)";
 
 try{
-	Class.forName("com.mysql.jdbc.Driver");
-    String jdbcurl = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
-    conn = DriverManager.getConnection(jdbcurl, "root", "0000");
+	conn = DBConnection.getCon();
     stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 	PreparedStatement pstmt = conn.prepareStatement(sql_update);
 	pstmt.setString(1,name);

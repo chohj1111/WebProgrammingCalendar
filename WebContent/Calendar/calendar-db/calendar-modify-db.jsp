@@ -6,6 +6,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="connection.DBConnection" %> 
 
 <% request.setCharacterEncoding("utf-8"); %>
 <html>
@@ -25,27 +26,11 @@ title=request.getParameter("title");
 color=request.getParameter("color");
 startdate = request.getParameter("startdate");
 enddate = request.getParameter("enddate");
-// 일정이 여러 날일 때 
-/* if(startdate!= enddate) {
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		// converting sql date to util.date 
-		java.util.Date endDate_ = df.parse(enddate);
-		// add one day using Calendar class
-		Calendar c = Calendar.getInstance(); 
-		c.setTime(endDate_); 
-		c.add(Calendar.DATE, 1);
-		endDate_ = c.getTime();
-		// endDate_ to string 
-		enddate = df.format(endDate_);
-		
-}  */
 memo = request.getParameter("memo");
 user_id = request.getParameter("user_id");
 
 try{
-	Class.forName("com.mysql.jdbc.Driver");
-	String url = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
-	conn = DriverManager.getConnection(url, "root", "0000");
+	conn = DBConnection.getCon();
 	sql_update = "update plan set title=?,color=?,startdate=?,enddate=?,memo=? where id=? and user_id=?";
 	pstmt = conn.prepareStatement(sql_update);
 	pstmt.setString(1,title);

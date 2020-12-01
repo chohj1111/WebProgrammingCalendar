@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-
-
+<%@ page import="connection.DBConnection" %> 
 <% request.setCharacterEncoding("utf-8"); %>
 <html>
 <body>
@@ -23,9 +22,7 @@ enddate = request.getParameter("enddate");
 memo = request.getParameter("memo");
 user_id = request.getParameter("user_id");
 	try{	
-		Class.forName("com.mysql.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
-		conn = DriverManager.getConnection(url, "root", "0000");
+		conn = DBConnection.getCon();
 		sql_update = "insert into plan(title,color,startdate,enddate,memo,user_id) values(?,?,?,?,?,?)";
 		pstmt = conn.prepareStatement(sql_update);
 		pstmt.setString(1,title);
@@ -36,7 +33,6 @@ user_id = request.getParameter("user_id");
 		else pstmt.setNull(5,Types.VARCHAR);
 		pstmt.setString(6,user_id);
 		pstmt.executeUpdate();
-		
 	}
 	// redirection 필요
 	catch(Exception e) {
@@ -51,7 +47,6 @@ user_id = request.getParameter("user_id");
 	redirectURL = "../calendar.jsp"; 
 	response.sendRedirect(redirectURL);
 %>
-	
 
 </body>
 </html>

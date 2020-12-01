@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="connection.DBConnection" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -20,9 +21,7 @@
 		String sql = "delete from follow where follower='"+myID+"' and followed='"+targetID+"'";
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		    String jdbcurl = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
-		    conn = DriverManager.getConnection(jdbcurl, "root", "0000");		
+			conn = DBConnection.getCon();		
 		    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			stmt.executeUpdate(sql);
 			%>
