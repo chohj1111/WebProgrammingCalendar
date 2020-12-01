@@ -2,6 +2,20 @@
     pageEncoding="utf-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
+<%  
+	// 세션이 있을때 캘린더 메인화면으로 redirect
+	if (session.getAttribute("user_id") != null){
+	%>
+	     <script>
+	          alert("이미 로그인 하셨습니다." );
+	          window.location = '../Calendar/calendar.jsp';
+	     </script> 
+	<%
+	}
+	String user_id = (String)session.getAttribute("user_id");
+	
+	String user_name = (String)session.getAttribute("user_name");
+%>
 <html lang="ko">
 <head>
     <meta charset="utf-8">
