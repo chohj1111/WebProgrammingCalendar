@@ -45,7 +45,12 @@ iframe{
 	      <div id="user-msg">님 반갑습니다.</div><br><br>
 	      <a id="user-search" href="#">사용자 검색</a>
 	      <a id="follow-list" href="#">팔로우 목록</a>
-		  <a id="logout" href="#">로그아웃</a>
+		  <a id="logout" href="#">
+	      	<%
+	      		if(user_id == null) out.println("로그인");
+	      		else out.println("로그아웃");
+	      	%>
+		  </a>
 	    </nav>
 	    <div class="overlay"></div>
 	</div>
