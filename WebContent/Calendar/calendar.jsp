@@ -15,20 +15,17 @@
 <script type="text/javascript" src='lib/main.js'></script>
 <script type="text/javascript" src="calendar.js"></script>
 <link rel="stylesheet" type="text/css" href="calendar.css">
-
+<style type="text/css">
+iframe{
+	width:83%;
+	height:60%;
+	border:1px solid #dae1e6;
+	margin-left:10px;
+}
+</style>
 <!-- calendar_db로 전송 -->
 <%  
-	// 세션이 없을 때 로그인 화면으로 redirect  
-	if (session.getAttribute("user_id") == null ||session.getAttribute("user_id").equals("")){
-	%>
-	     <script>
-	          alert("로그인이 필요합니다." );
-	          window.location = '../LoginScreen/loginscreen.jsp';
-	     </script> 
-	<%
-	}
 	String user_id = (String)session.getAttribute("user_id");
-	
 	String user_name = (String)session.getAttribute("user_name");
 %>
 <script>var myID="<%=user_id%>"</script>
@@ -55,14 +52,15 @@
 
 	<div id="calendar"></div>
 	<div id="content-box">
-		<form action="" method="get">
+		<form action="search/search.jsp" method="get" target="search_frame">
 			<fieldset>
-				<input type="search" id="search-bar">
+				<input type="search" id="search-bar" name="search_word" placeholder="일정을 검색하세요">
 				<button type="submit" id="search-submit">
 					<i class="fa fa-search"></i>
 				</button>
 			</fieldset>
 		</form>
+		<iframe name="search_frame"></iframe>
 	</div>
 	 
 	<div id="addEvent-modal" class="modal">
