@@ -34,12 +34,12 @@ try{
 while(rs.next()){
 	%><li><a href='#'><%
 		out.println(rs.getString("title"));
-		%><div class="li_date"><%
+		%></a><div class="li_date"><%
 			out.println(rs.getString("startdate"));
 		%></div><%
 	%></li><%
 }
-%></div>
-</ul>
+%>	</ul>
+</div>
 </body>
 </html>
