@@ -182,7 +182,7 @@ iframe{
 		<h1><%=user_name%></h1>
 		<h4>&nbsp;님의 팔로우 목록</h4><hr><br>
 		<br><br>
-		<div id="follow-list-result"></div>
+		<div id="follow-list-result">불러오는중..</div>
 		<br><br>
 	</div>
 	
