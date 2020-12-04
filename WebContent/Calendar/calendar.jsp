@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.text.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="connection.DBConnection" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -19,6 +23,19 @@
 <%  
 	String user_id = (String)session.getAttribute("user_id");
 	String user_name = (String)session.getAttribute("user_name");
+	
+	Calendar t_cal = Calendar.getInstance();
+	
+	String t_year = Integer.toString(t_cal.get(Calendar.YEAR));
+	String t_month = Integer.toString(t_cal.get(Calendar.MONTH) + 1);
+	String t_date = Integer.toString(t_cal.get(Calendar.DATE));
+	String coming_date = Integer.toString(t_cal.get(Calendar.DATE) + 7);
+	if(t_cal.get(Calendar.DATE)<10)
+		t_date = "0"+t_date;
+	String today = t_year+"-"+t_month+"-"+t_date;
+	session.setAttribute("today",today);
+	
+	String coming_day = t_year+"-"+t_month+"-"+coming_date;
 %>
 <script>var myID="<%=user_id%>"</script>
 
@@ -61,7 +78,53 @@
 			<iframe name="search_frame"></iframe>
 			<button id="frame_close_btn"><i class="fas fa-times"></i></button>
 		</div>
-		<div id="project_info">제작 : 김동욱, 이정욱, 조현준</div>
+		<div id="mid_box">
+			&emsp;&emsp; 제작 <br>
+			김동욱 2017112090<br>
+			이정욱 2017112129<br>
+			조현준 2017112125<br>
+			<div id="notice">
+				<form action="notice/notice.jsp" method="get" target="notice_frame">
+					<button type="submit" id="notice_btn"><i class="fas fa-users"></i></button>
+				</form>
+				<div id="notice_frame">
+					<iframe name="notice_frame"></iframe>
+				</div>
+				<div id="notice_num"><p>6</p></div>
+			</div>
+		</div>
+		<div id="bottom_box">
+			<div id="oncoming">
+				<%
+				Connection conn = null;
+				Statement stmt = null;
+				ResultSet rs = null;
+				String sql = null;
+				try{
+					conn = DBConnection.getCon();
+					stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+					sql = "select title, startdate, memo from plan where startdate between '"+today+"' and '"
+					+coming_day+"' and user_id='"+user_id+"' order by startdate";
+					rs = stmt.executeQuery(sql);
+				}catch(Exception e){
+					out.println("DB 연동 오류입니다.:"+e.getMessage());
+				}
+				%>
+				<p style="font-weight:bolder; color:#2c3e50">다가오는 일정</p>
+				<%
+				while(rs.next()){
+					%><div id="oncoming_title"><%
+					out.println(rs.getString("title"));
+						%><span id="oncoming_memo"><%
+						out.println(rs.getString("memo"));
+					%></span></div>
+					<span id="oncoming_date"><%
+					out.println(rs.getString("startdate"));
+					%></span><br><%
+				}
+				%>
+			</div>
+		</div>
 	</div>
 	 
 	<div id="addEvent-modal" class="modal">
@@ -178,7 +241,7 @@
 		<h1><%=user_name%></h1>
 		<h4>&nbsp;님의 팔로우 목록</h4><hr><br>
 		<br><br>
-		<div id="follow-list-result"></div>
+		<div id="follow-list-result">불러오는중...</div>
 		<br><br>
 	</div>
 	
