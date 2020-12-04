@@ -219,6 +219,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		$('#calendar_modify_form').submit(); 
 	});
 	
+	$('#search-submit').click(function(){
+		$('#search_frame').css("display","block");
+	});
+	
+	$("#frame_close_btn").click(function(){
+		$('#search_frame').css("display","none");
+	});
+	
 	var currentdate = calendar.getDate();
 	calendar.gotoDate(currentdate);
 

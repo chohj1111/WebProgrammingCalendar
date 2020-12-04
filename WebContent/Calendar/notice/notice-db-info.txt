@@ -1,0 +1,12 @@
+use mycal;
+
+create table notice (
+	id varchar(20) not null,
+	info varchar(40) not null,
+	date DATE not null,
+	primary key(id)
+);
+
+id : 알림을 받는 사람의 ID
+info : 알림의 내용
+date : 알림 날짜

@@ -15,14 +15,6 @@
 <script type="text/javascript" src='lib/main.js'></script>
 <script type="text/javascript" src="calendar.js"></script>
 <link rel="stylesheet" type="text/css" href="calendar.css">
-<style type="text/css">
-iframe{
-	width:83%;
-	height:60%;
-	border:1px solid #dae1e6;
-	margin-left:10px;
-}
-</style>
 <!-- calendar_db로 전송 -->
 <%  
 	String user_id = (String)session.getAttribute("user_id");
@@ -65,7 +57,11 @@ iframe{
 				</button>
 			</fieldset>
 		</form>
-		<iframe name="search_frame"></iframe>
+		<div id="search_frame">
+			<iframe name="search_frame"></iframe>
+			<button id="frame_close_btn"><i class="fas fa-times"></i></button>
+		</div>
+		<div id="project_info">제작 : 김동욱, 이정욱, 조현준</div>
 	</div>
 	 
 	<div id="addEvent-modal" class="modal">
@@ -182,7 +178,7 @@ iframe{
 		<h1><%=user_name%></h1>
 		<h4>&nbsp;님의 팔로우 목록</h4><hr><br>
 		<br><br>
-		<div id="follow-list-result">불러오는중..</div>
+		<div id="follow-list-result"></div>
 		<br><br>
 	</div>
 	
