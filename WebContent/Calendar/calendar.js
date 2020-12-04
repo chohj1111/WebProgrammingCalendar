@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	       });
 
 		  calendar.render();
+		  location.reload();
 		},
 		
 		//resize는 end date 조정 필요 x 
@@ -114,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	       });
 
 		  calendar.render();
+		  location.reload();
 		},
 		
 					
