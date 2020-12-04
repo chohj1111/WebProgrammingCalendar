@@ -19,30 +19,35 @@
 	}
 	else if(act.equals("search")) {
 		response.setContentType("text/html");
-		
 		username = request.getParameter("username");
-		String sql = "select name, id from member where name='"+username+"'";
-		try {
-			conn = DBConnection.getCon();	
-		    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-		    rs = stmt.executeQuery(sql);
-		    int cnt = 0;
-		    while(rs.next()) {
-		    	response.getWriter().write(rs.getString("name")+" ("+rs.getString("id")+")"+"&nbsp;&nbsp;&nbsp;");
-		    	response.getWriter().write("<button type='button' class='follow-btn'");
-		    	response.getWriter().write(" value='"+rs.getString("id")+"'>팔로우</button><br><br>");
-		    	cnt++;
-		    }
-		    if(cnt == 0) {
-		    	response.getWriter().write("검색 결과가 없습니다.");
-		    }
-		    else {
-		    	response.getWriter().write("<br><br><small>총 검색결과 "+cnt+"개</small>");
-		    }
-		    
+		
+		if(username.length() == 0){
+			response.getWriter().write("한 글자 이상 입력해주세요");
 		}
-		catch(Exception e){
-			out.println("DB 연동 오류입니다.:"+e.getMessage());
+		else{
+			String sql = "select name, id from member where name like '%"+username+"%'";
+			try {
+				conn = DBConnection.getCon();	
+			    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			    rs = stmt.executeQuery(sql);
+			    int cnt = 0;
+			    while(rs.next()) {
+			    	response.getWriter().write(rs.getString("name")+" ("+rs.getString("id")+")"+"&nbsp;&nbsp;&nbsp;");
+			    	response.getWriter().write("<button type='button' class='follow-btn'");
+			    	response.getWriter().write(" value='"+rs.getString("id")+"'>팔로우</button><br><br>");
+			    	cnt++;
+			    }
+			    if(cnt == 0) {
+			    	response.getWriter().write("검색 결과가 없습니다.");
+			    }
+			    else {
+			    	response.getWriter().write("<br><br><small>총 검색결과 "+cnt+"개</small>");
+			    }
+			    
+			}
+			catch(Exception e){
+				out.println("DB 연동 오류입니다.:"+e.getMessage());
+			}
 		}
 	}
 %>
