@@ -40,3 +40,15 @@ a{
 	text-decoration:none;
 	cursor:pointer;
 }
+::-webkit-scrollbar{
+	width:8px;
+	height:8px;
+	background:#ffffff;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #c3ccd5;
+  }
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}

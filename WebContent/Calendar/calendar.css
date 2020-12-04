@@ -22,6 +22,19 @@
     color: #2c3e50;
     background-color: #c8c8c86b;
     overflow: scroll;
+    -ms-overflow-style:none;
+}
+::-webkit-scrollbar{
+	width:8px;
+	height:8px;
+	background:#ffffff;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #c3ccd5;
+  }
+::-webkit-scrollbar-track {
+    background: #ffffff;
 }
 #oncoming_title {
     font-size: 14px;
