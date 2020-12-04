@@ -24,13 +24,13 @@
 			conn = DBConnection.getCon();	
 		    stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		    rs = stmt.executeQuery(sql);
-		    		
+		    int cnt = 0;
 		    while(rs.next()){
 		    	Statement stmt2 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		    	String id = rs.getString("followed");
 		    	sql2 = "select name from member where id='"+id+"'";
 		    	rs2 = stmt2.executeQuery(sql2);
-		    	
+		    	cnt++;
 				if(rs2.next()){
 			    	response.getWriter().write(rs2.getString("name")+"&nbsp;(");
 			    	response.getWriter().write(id+")&nbsp;&nbsp;&nbsp;");
@@ -41,7 +41,9 @@
 			    	response.getWriter().write("<br>");
 				}
 		    }
-
+            if(cnt == 0) {
+		    	response.getWriter().write("아직 팔로우 한 사람이 없습니다!");		    	
+		    }
 		}
 		catch(Exception e){
 			out.println("DB 연동 오류입니다.:"+e.getMessage());
