@@ -238,6 +238,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 	
+	if($('#notice_num').text() != "0")
+		$('#notice_num').css("display","block");
+	else{
+		$('#notice_num').css("display","none");
+	}
 	
 	var currentdate = calendar.getDate();
 	calendar.gotoDate(currentdate);

@@ -110,6 +110,7 @@ button{
 }
 #notice_num{
 	position: relative;
+	display:none;
     top: -15px;
     right: -50px;
     font-size: 13px;
