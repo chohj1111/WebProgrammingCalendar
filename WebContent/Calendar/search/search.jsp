@@ -23,7 +23,8 @@ String user_id = (String)session.getAttribute("user_id");
 try{
 	conn = DBConnection.getCon();
 	stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-	sql = "select title, startdate, memo from plan where title like '%"+search_word+"%' and user_id='"+user_id+"'";
+	sql = "select title, startdate, memo from plan where title like '%"
+	+search_word+"%' and user_id='"+user_id+"' order by startdate desc";
 	rs = stmt.executeQuery(sql);
 }catch(Exception e){
 	out.println("DB 연동 오류입니다.:"+e.getMessage());
