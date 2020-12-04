@@ -105,7 +105,7 @@
 				try{
 					conn = DBConnection.getCon();
 					stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-					sql = "select title, startdate, memo from plan where startdate between '"+today+"' and '"
+					sql = "select * from plan where startdate between '"+today+"' and '"
 					+coming_day+"' and user_id='"+user_id+"' order by startdate";
 					rs = stmt.executeQuery(sql);
 				}catch(Exception e){
@@ -115,7 +115,7 @@
 				<p style="font-weight:bolder; color:#2c3e50">다가오는 일정</p>
 				<%
 				while(rs.next()){
-					%><div id="oncoming_title"><%
+					%><div id="oncoming_title" style='color:<%= rs.getString("color") %>'><%
 					out.println(rs.getString("title"));
 						%><span id="oncoming_memo"><%
 						out.println(rs.getString("memo"));
