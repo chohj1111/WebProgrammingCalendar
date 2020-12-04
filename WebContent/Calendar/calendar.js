@@ -46,7 +46,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		editable: true,
 		eventResizableFromStart :true,
 		droppable: true,
-		events: 'calendarjson.jsp',
+		googleCalendarApiKey:'AIzaSyCZmV8mqqy4xcNIkNPKez5zjK0hYDeNf5Q',
+		eventSources:[
+			{
+				url:'calendarjson.jsp'
+			},
+			{
+          		googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+          		id: 'google_holidays'
+        	}
+			
+		],
 
 		// drop within calendar
 		// there is no need to modify color or memo(description) 
@@ -243,6 +253,23 @@ document.addEventListener('DOMContentLoaded', function() {
 	else{
 		$('#notice_num').css("display","none");
 	}
+	
+	$('#holiday_chk').change(function() {
+		var google_holidays = calendar.getEventSourceById("google_holidays");
+		//console.log(jQuery.type(google_holiday));
+		var google_event = 	   {
+          		googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+          		id: 'google_holidays'
+        	};
+		if(this.checked) {
+        	calendar.addEventSource(google_event);
+			//google_holidays.addEventre
+        }
+		else{
+			google_holidays.remove();	
+		}
+    });
+
 	
 	var currentdate = calendar.getDate();
 	calendar.gotoDate(currentdate);

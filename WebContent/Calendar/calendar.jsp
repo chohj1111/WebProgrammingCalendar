@@ -83,6 +83,8 @@
 			김동욱 2017112090<br>
 			이정욱 2017112129<br>
 			조현준 2017112125<br>
+			<p></p>
+			<input type="checkbox" id="holiday_chk" checked>공휴일 표시
 			<div id="notice">
 				<form action="notice/notice.jsp" method="get" target="notice_frame">
 					<button type="submit" id="notice_btn"><i class="fas fa-users"></i></button>
