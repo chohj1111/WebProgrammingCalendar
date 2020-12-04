@@ -227,6 +227,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		$('#search_frame').css("display","none");
 	});
 	
+	$('#notice_btn').click(function(){
+		if($('#notice_frame').css("display") == "none"){
+			$('#notice_frame').css("display","block");
+		}else{
+			$('#notice_frame').css("display","none");
+		}
+	});
+	
+	
 	var currentdate = calendar.getDate();
 	calendar.gotoDate(currentdate);
 
