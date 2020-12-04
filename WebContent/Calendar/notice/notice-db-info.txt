@@ -4,7 +4,7 @@ create table notice (
 	id varchar(20) not null,
 	info varchar(40) not null,
 	date DATE not null,
-	primary key(id)
+	isnew int not null
 );
 
 id : 알림을 받는 사람의 ID

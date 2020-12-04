@@ -41,7 +41,7 @@
 			    	response.getWriter().write("<br>");
 				}
 		    }
-            if(cnt == 0) {
+		     if(cnt == 0) {
 		    	response.getWriter().write("아직 팔로우 한 사람이 없습니다!");		    	
 		    }
 		}

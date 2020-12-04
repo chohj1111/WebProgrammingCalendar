@@ -23,7 +23,7 @@
 <%  
 	String user_id = (String)session.getAttribute("user_id");
 	String user_name = (String)session.getAttribute("user_name");
-	
+	String notice_num = null;
 	Calendar t_cal = Calendar.getInstance();
 	
 	String t_year = Integer.toString(t_cal.get(Calendar.YEAR));
@@ -90,7 +90,7 @@
 				<div id="notice_frame">
 					<iframe name="notice_frame"></iframe>
 				</div>
-				<div id="notice_num"><p>6</p></div>
+				<div id="notice_num"></div>
 			</div>
 		</div>
 		<div id="bottom_box">
@@ -122,7 +122,12 @@
 					out.println(rs.getString("startdate"));
 					%></span><br><%
 				}
+				sql = "select COUNT(*) as cnt from notice where id='"+user_id+"' and isnew='1'";
+				rs = stmt.executeQuery(sql);
+				while(rs.next())
+					notice_num = rs.getString("cnt");
 				%>
+				<script>$("#notice_num").text(<%=notice_num %>)</script>
 			</div>
 		</div>
 	</div>

@@ -233,6 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if($('#notice_frame').css("display") == "none"){
 			$('#notice_frame').css("display","block");
 		}else{
+			location.reload();
 			$('#notice_frame').css("display","none");
 		}
 	});

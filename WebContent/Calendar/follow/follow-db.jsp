@@ -62,6 +62,14 @@
 				    }
 				    else{
 				    	stmt.executeUpdate(sql_update);
+				    	
+				    	sql_update = "insert into notice values(?,?,?,?)";
+				    	PreparedStatement pstmt = conn.prepareStatement(sql_update);
+				    	pstmt.setString(1,targetID);
+				    	pstmt.setString(2,myID+" 님이 당신을 팔로우하기 시작했습니다");
+				    	pstmt.setString(3,(String)session.getAttribute("today"));
+				    	pstmt.setString(4,"1");
+				    	pstmt.executeUpdate();
 						%>
 						<script>
 							alert("팔로우 완료");
