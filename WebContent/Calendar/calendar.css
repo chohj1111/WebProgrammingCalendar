@@ -45,6 +45,11 @@
     top: -10px;
     color: #6b6b6e;
 }
+html {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+}
 body {
     margin: 40px 10px;
     padding: 0;
@@ -245,6 +250,9 @@ fieldset {
         position: relative;
         top: -65px;
         width: 90%;
+    }
+    #notice_frame iframe {
+        left: 70px;
     }
 }
 
