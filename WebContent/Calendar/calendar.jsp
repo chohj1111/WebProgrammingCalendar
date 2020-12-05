@@ -63,7 +63,9 @@
 	    </nav>
 	    <div class="overlay"></div>
 	</div>
-
+	<div style="position:absolute; top:75px; left:670px; z-index:1;">
+		<input type="checkbox" id="holiday_chk" checked>공휴일 표시
+	</div>
 	<div id="calendar"></div>
 	<div id="content-box">
 		<form action="search/search.jsp" method="get" target="search_frame">
@@ -84,7 +86,6 @@
 			이정욱 2017112129<br>
 			조현준 2017112125<br>
 			<p></p>
-			<input type="checkbox" id="holiday_chk" checked>공휴일 표시
 			<div id="notice">
 				<form id="notice-form" action="notice/notice.jsp" method="get" target="notice_frame">
 					<button type="submit" id="notice_btn"><i class="fas fa-users"></i></button>
