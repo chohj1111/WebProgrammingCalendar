@@ -33,13 +33,19 @@ try{
 <div class="search_wrap">
 	<ul>
 <%
+int cnt = 0;
+
 while(rs.next()){
+	cnt++;
 	%><li><a class="title"><%
 		out.println(rs.getString("title")+" ");
 		%></a><span class="li_memo"><% out.println(rs.getString("memo")); %></span><div class="li_date"><%
 			out.println(rs.getString("startdate"));
 		%></div><%
 	%></li><%
+}
+if(cnt == 0){
+	out.println("\""+search_word+"\" 검색 결과 없음");
 }
 %>	</ul>
 </div>
