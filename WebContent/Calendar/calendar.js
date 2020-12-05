@@ -241,7 +241,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	$('#notice_btn').click(function(){
 		if($('#notice_frame').css("display") == "none"){
-			$('#notice_frame').css("display","block");
+			setTimeout(function(){
+				$('#notice_frame').css("display","block");
+				},100);
 		}else{
 			location.reload();
 			$('#notice_frame').css("display","none");

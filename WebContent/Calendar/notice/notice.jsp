@@ -11,12 +11,14 @@
 <link rel="stylesheet" type="text/css" href="notice.css">
 <script type="text/javascript" src='../lib/jquery-3.5.1.min.js'></script>
 <script>
-	$(function(){
-		$("#f4f").click(function(){
-			var target=$("#notice_frame",window.parent.document);
-			target.css("display","none");
-		});
-	});
+	function f4fSubmit(){
+		var submit = 0;
+		var target=$("#notice_frame",window.parent.document);
+		target.css("display","none");
+		submit = 1;
+		if(submit == 1)
+			return true;
+	}
 </script>
 </head>
 <body>
@@ -63,7 +65,7 @@ while(rs.next()){
 		%><button id="following" disabled="true">팔로잉</button><%
 		%><br><%
 	}else{
-		%><form action="../follow/follow-db.jsp" method="post">
+		%><form action="../follow/follow-db.jsp" method="post" onsubmit="return f4fSubmit()">
 			<input type="hidden" name="myID" value="<%=user_id%>">
 			<input type="hidden" name="targetID" value="<%=target_ID%>">
 			<button type="submit" id="f4f">팔로우</button>
@@ -93,7 +95,7 @@ while(rs.next()){
 		%><button id="following" disabled="true">팔로잉</button><%
 		%><br><%
 	}else{
-		%><form action="../follow/follow-db.jsp" method="post">
+		%><form action="../follow/follow-db.jsp" method="post" onsubmit="return f4fSubmit()">
 			<input type="hidden" name="myID" value="<%=user_id%>">
 			<input type="hidden" name="targetID" value="<%=target_ID%>">
 			<button type="submit" id="f4f">팔로우</button>
