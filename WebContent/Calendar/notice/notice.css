@@ -1,11 +1,22 @@
 @charset "UTF-8";
-body{
-	font-size:12px;
-	border-radius:2%;
+body {
+    font-size: 12px;
+    border-radius: 2%;
 }
-#info{
-	
+#info {
 }
-#date{
-	color:gray;
+#date {
+    color: gray;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #c3ccd5;
+}
+::-webkit-scrollbar-track {
+    background: #ffffff;
 }
