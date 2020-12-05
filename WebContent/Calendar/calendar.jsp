@@ -86,7 +86,7 @@
 			<p></p>
 			<input type="checkbox" id="holiday_chk" checked>공휴일 표시
 			<div id="notice">
-				<form action="notice/notice.jsp" method="get" target="notice_frame">
+				<form id="notice-form" action="notice/notice.jsp" method="get" target="notice_frame">
 					<button type="submit" id="notice_btn"><i class="fas fa-users"></i></button>
 				</form>
 				<div id="notice_frame">

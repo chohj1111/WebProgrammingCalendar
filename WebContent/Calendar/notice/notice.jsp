@@ -25,7 +25,7 @@ try{
 }catch(Exception e){
 	out.println("DB 연동 오류입니다.:"+e.getMessage());
 }
-%><h4>new</h4><%
+%><h3>새로운 팔로워</h3><hr><br><%
 while(rs.next()){
 	%><span id="info"><%
 		out.println(rs.getString("info"));
@@ -37,7 +37,6 @@ while(rs.next()){
 sql = "select info, date from notice where id = '"+user_id+"' and isnew = '0' order by date desc";
 rs = stmt.executeQuery(sql);
 
-%><h4>확인함</h4><%
 while(rs.next()){
 	%><span id="info"><%
 		out.println(rs.getString("info"));
@@ -48,6 +47,6 @@ while(rs.next()){
 }
 sql = "update notice set isnew='0' where id = '"+user_id+"'";
 stmt.executeUpdate(sql);
-%>
+%><br>모두 확인하였습니다.
 </body>
 </html>
