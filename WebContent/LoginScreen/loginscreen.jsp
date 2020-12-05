@@ -94,6 +94,7 @@
         <div class="container">
             <div class="row">
                 <div id="owl-lib">
+                	<div class="item"><img src="https://d0.awsstatic.com/logos/powered-by-aws.png" class="center-block"></div>
                 	<div class="item"><img src="lib/img/logos/bootst.png" class="center-block"></div>
                     <div class="item"><img src="lib/img/logos/fullcal.png" class="center-block"></div>
                     <div class="item"><img src="lib/img/logos/JQuery.png" class="center-block"></div>
