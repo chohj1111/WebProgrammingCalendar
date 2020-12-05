@@ -1,7 +1,8 @@
 use mycal;
 
-create table notice (
+create table notice(
 	id varchar(20) not null,
+	num int not null auto_increment primary key,
 	info varchar(40) not null,
 	date DATE not null,
 	isnew int not null

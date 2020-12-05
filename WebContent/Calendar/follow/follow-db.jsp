@@ -63,7 +63,7 @@
 				    else{
 				    	stmt.executeUpdate(sql_update);
 				    	
-				    	sql_update = "insert into notice values(?,?,?,?)";
+				    	sql_update = "insert into notice (id,info,date,isnew) values(?,?,?,?)";
 				    	PreparedStatement pstmt = conn.prepareStatement(sql_update);
 				    	pstmt.setString(1,targetID);
 				    	pstmt.setString(2,myID+" 님이 당신을 팔로우하기 시작했습니다");
