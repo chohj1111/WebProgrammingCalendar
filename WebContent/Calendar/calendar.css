@@ -14,24 +14,24 @@
     width: 84%;
 }
 #oncoming {
-	border-radius: 50px;
-	border: 3px solid pink;
+    border-radius: 50px;
+    border: 3px solid pink;
     width: 100%;
     height: 100%;
     border-radius: 3%;
     color: #2c3e50;
     overflow: scroll;
-    -ms-overflow-style:none;
+    -ms-overflow-style: none;
 }
-::-webkit-scrollbar{
-	width:8px;
-	height:8px;
-	background:#ffffff;
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 3.5px;
     background-color: #c3ccd5;
-  }
+}
 ::-webkit-scrollbar-track {
     background: #ffffff;
 }
@@ -93,12 +93,14 @@ body {
     z-index: 1;
 }
 #notice_frame iframe {
-	background: 
-	radial-gradient(circle at 50% 0, rgba(228, 220, 220, 0.5), 
-	rgba(255,0,0,0) 70.71%), radial-gradient(circle at 6.7% 75%, 
-	rgba(237, 237, 255, 0.5), rgba(0,0,255,0) 70.71%), 
-	radial-gradient(circle at 93.3% 75%, rgba(208, 218, 208, 0.5), 
-	rgba(0,255,0,0) 70.71%) white; 
+    background: radial-gradient(
+            circle at 50% 0,
+            rgba(228, 220, 220, 0.5),
+            rgba(255, 0, 0, 0) 70.71%
+        ),
+        radial-gradient(circle at 6.7% 75%, rgba(237, 237, 255, 0.5), rgba(0, 0, 255, 0) 70.71%),
+        radial-gradient(circle at 93.3% 75%, rgba(208, 218, 208, 0.5), rgba(0, 255, 0, 0) 70.71%)
+            white;
     position: absolute;
     top: -70px;
     left: -270px;
@@ -128,7 +130,7 @@ body {
     z-index: 0;
 }
 #notice-form {
-	height: 80px;
+    height: 80px;
 }
 
 button {
@@ -141,7 +143,7 @@ button {
 #notice_num {
     position: relative;
     display: none;
-    top: -15px;
+    top: -75px;
     right: -50px;
     font-size: 13px;
     color: #fff;
