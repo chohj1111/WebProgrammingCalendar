@@ -56,6 +56,7 @@ while(rs.next()){
 		out.println(rs.getString("date"));
 	%></span><br><%
 	boolean following = false;
+	rs_follow = stmt_follow.executeQuery(sql_follow);
 	while(rs_follow.next()){
 		if(rs_follow.getString("followed").equals(target_ID)){
 			following = true;
