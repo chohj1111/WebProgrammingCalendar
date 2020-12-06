@@ -53,7 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			},
 			{
           		googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
-          		id: 'google_holidays'
+          		id: 'google_holidays',
+				// 공휴일은 빨간색으로 출력
+				color: "red"
         	}
 			
 		],
@@ -261,7 +263,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		//console.log(jQuery.type(google_holiday));
 		var google_event = 	   {
           		googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
-          		id: 'google_holidays'
+          		id: 'google_holidays',
+				color: "red"
         	};
 		if(this.checked) {
         	calendar.addEventSource(google_event);

@@ -11,4 +11,4 @@ create table plan (
 	id int not null auto_increment primary key,
 	user_id varchar(20) not null,
 	FOREIGN KEY (user_id) REFERENCES member(id)
-);
+)default character set utf8 collate utf8_general_ci;

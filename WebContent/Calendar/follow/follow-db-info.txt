@@ -3,7 +3,7 @@ use mycal;
 create table follow (
 	follower varchar(20) not null,
 	followed varchar(20) not null
-);
+) default character set utf8 collate utf8_general_ci;
 
 follower -> 직접 팔로우 버튼을 누른 사람의 ID
 followed -> 팔로우 당한 사람의 ID
