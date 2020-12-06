@@ -1,3 +1,10 @@
+if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+	setTimeout(function() {
+		window.location = 'microsoft-edge:' + window.location;
+		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+	}, 1);
+}
+  
 $(document).ready(function () {
     $(".animated-text").typed({
         strings: [
