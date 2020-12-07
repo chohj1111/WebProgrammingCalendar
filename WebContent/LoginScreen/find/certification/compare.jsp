@@ -39,9 +39,7 @@ if(request.getParameter("userInput").equals(DoCompare.getCode())){
 		ResultSet rs = null;
 		
 		try{
-			Class.forName("com.mysql.jdbc.Driver");
-	        String jdbcurl = "jdbc:mysql://localhost:3306/mycal?serverTimezone=UTC";
-	        conn = DriverManager.getConnection(jdbcurl, "root", "0000");
+			conn = DBConnection.getCon();
 	        String sql = "select * from member where id = ?";
 	        pstmt = conn.prepareStatement(sql);
 	    	pstmt.setString(1, id);

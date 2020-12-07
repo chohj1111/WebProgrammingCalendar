@@ -4,8 +4,8 @@
 }
 
 /*주말색변경*/
-.fc-day-sat { background-color:blue; }
-.fc-day-sun { background-color:red;  }
+.fc-day-sat { color:blue; }
+.fc-day-sun { color:red;  }
 
 #content-box {
     position: relative;
