@@ -1,3 +1,7 @@
+// import google api key 
+var config =  document.createElement('script'); 
+config.setAttribute('src','config.js');
+document.head.appendChild(config);
 // import momentjs
 var momentJS = document.createElement('script');  
 momentJS.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js');
