@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		editable: true,
 		eventResizableFromStart :true,
 		droppable: true,
-		googleCalendarApiKey:'AIzaSyCZmV8mqqy4xcNIkNPKez5zjK0hYDeNf5Q',
+		googleCalendarApiKey: NOTHING, // for security 
 		eventSources:[
 			{
 				url:'calendarjson.jsp'
