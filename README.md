@@ -22,3 +22,17 @@
                 > 프로젝트 war파일
 
                 > 프로젝트 원본파일
+
+## 프로젝트 트리 구조 
+![image](https://user-images.githubusercontent.com/58474921/138876054-535b9d63-90d2-4a56-a85f-1cc0494d1890.png)
+![image](https://user-images.githubusercontent.com/58474921/138876063-e3a9a358-818f-4688-831d-da15ca99af6d.png)
+![image](https://user-images.githubusercontent.com/58474921/138876071-81826aac-31ec-4137-8d6e-459e2347fe7b.png)
+
+
+## 로그인 화면 
+![image](https://user-images.githubusercontent.com/58474921/138876096-eb7216be-c183-468b-a7dd-e35bee1f6de5.png)
+
+## 회원가입 화면
+![image](https://user-images.githubusercontent.com/58474921/138876134-52b13c5b-6934-4afb-977b-40b4c89d63c0.png)
+![image](https://user-images.githubusercontent.com/58474921/138876162-bd7e47b8-6236-4cee-8ab4-d899033c8086.png)
+
